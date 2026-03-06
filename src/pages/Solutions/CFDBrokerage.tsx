@@ -277,32 +277,49 @@ export default function CFDBrokerage() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             <div className="lg:col-span-5 flex flex-col">
               <div className="space-y-2">
-                {platformFeatures.map((f) => (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => setExpandedFeature(f.id)}
-                    className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 flex items-center justify-between gap-4 cursor-pointer ${
-                      expandedFeature === f.id
-                        ? 'bg-finovo-dark text-white border-finovo-dark'
-                        : 'bg-white text-finovo-dark border-slate-200 hover:border-slate-300'
-                    }`}
-                  >
-                    <span className="font-medium">{f.label}</span>
-                    {expandedFeature === f.id ? (
-                      <span className="text-white/80">−</span>
-                    ) : (
-                      <ArrowRight className="w-4 h-4 text-finovo-green shrink-0" />
-                    )}
-                  </button>
-                ))}
+                {platformFeatures.map((f) => {
+                  const isActive = expandedFeature === f.id;
+                  return (
+                    <div key={f.id}>
+                      <button
+                        type="button"
+                        onClick={() => setExpandedFeature(f.id)}
+                        className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 flex items-center justify-between gap-4 cursor-pointer ${
+                          isActive
+                            ? 'bg-finovo-dark text-white border-finovo-dark'
+                            : 'bg-white text-finovo-dark border-slate-200 hover:border-slate-300'
+                        }`}
+                      >
+                        <span className="font-medium">{f.label}</span>
+                        {isActive ? (
+                          <span className="text-white/80">−</span>
+                        ) : (
+                          <ArrowRight className="w-4 h-4 text-finovo-green shrink-0" />
+                        )}
+                      </button>
+
+                      {/* Mobile: show image directly under active option */}
+                      {isActive && (
+                        <div className="mt-3 w-full rounded-2xl bg-slate-50 flex items-center justify-center h-64 md:h-72 lg:hidden">
+                          <img
+                            src={f.image}
+                            alt={f.alt}
+                            className="max-w-full max-h-full object-contain"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
               {activeFeature && (
                 <p className="mt-4 text-finovo-muted text-sm pl-1">{activeFeature.detail}</p>
               )}
             </div>
 
-            <div className="lg:col-span-7 flex justify-end">
+            {/* Desktop: shared image column */}
+            <div className="hidden lg:flex lg:col-span-7 justify-end">
               <div className="w-full max-w-xl h-full flex items-center justify-center">
                 <img
                   src={activeFeature?.image}

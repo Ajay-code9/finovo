@@ -860,8 +860,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="hidden lg:flex flex-1 justify-end items-center min-w-0 shrink-0">
-            <div className="overflow-hidden max-w-[580px] xl:max-w-[680px] 2xl:max-w-[780px] w-full ml-auto">
+          <div className="flex flex-1 justify-center lg:justify-end items-center min-w-0 shrink-0 mt-6 lg:mt-0">
+            <div className="overflow-hidden max-w-[580px] xl:max-w-[680px] 2xl:max-w-[780px] w-full lg:ml-auto">
               <img
                 src="/assets/images/homehero.png"
                 alt="Finovo trading infrastructure overview"
