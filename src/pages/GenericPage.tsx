@@ -88,13 +88,13 @@ export const GenericPage: React.FC<GenericPageProps> = ({ title, description, fe
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <div className="bg-finovo-gray p-8 rounded-[3rem] border border-slate-100 shadow-xl relative overflow-hidden">
+              <div className="bg-finovo-gray p-8 rounded-3xl border border-slate-100 shadow-xl relative overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-tr from-finovo-green/10 via-transparent to-emerald-500/10 pointer-events-none" />
-                <img 
-                  src={`https://picsum.photos/seed/${imageSeed || 'tech'}/800/600`} 
-                  alt={title} 
+                <img
+                  src={`/assets/images/${imageSeed || 'generic-tech'}.png`}
+                  alt={title}
                   className="rounded-2xl w-full shadow-lg relative z-10"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -154,7 +154,7 @@ export const GenericPage: React.FC<GenericPageProps> = ({ title, description, fe
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}
-                className="bg-white p-8 rounded-[2rem] border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all"
+                className="bg-white p-8 rounded-4xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all"
               >
                 <div className="w-12 h-12 bg-finovo-green/10 rounded-xl flex items-center justify-center mb-5">
                   <item.icon className="w-6 h-6 text-finovo-green" />
@@ -170,7 +170,7 @@ export const GenericPage: React.FC<GenericPageProps> = ({ title, description, fe
       {/* CTA */}
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-finovo-dark rounded-[3rem] p-12 md:p-18 text-center relative overflow-hidden">
+          <div className="bg-finovo-dark rounded-3xl p-12 md:p-18 text-center relative overflow-hidden">
             <div className="pointer-events-none absolute inset-0 opacity-40">
               <div className="absolute -top-24 left-1/4 w-72 h-72 rounded-full bg-finovo-green/30 blur-3xl" />
             </div>

@@ -151,7 +151,7 @@ export default function PredictionMarkets() {
               handles the infrastructure, operations, and upgrades – you focus on the traders and the markets.
             </p>
             <div className="flex flex-wrap gap-4 items-center">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors">
                 Start today <ArrowRight className="w-4 h-4" />
               </button>
               <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm md:text-base font-semibold text-finovo-dark hover:text-finovo-green transition-colors">
@@ -316,10 +316,10 @@ export default function PredictionMarkets() {
               className="hidden md:block rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl"
             >
               <img
-                src="https://picsum.photos/seed/prediction-setup/1100/800"
+                src="/assets/images/prediction-setup.png"
                 alt="Guided setup for prediction markets"
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </motion.div>
           </div>
@@ -491,10 +491,10 @@ export default function PredictionMarkets() {
               <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
               <div className="relative rounded-[2.5rem] border border-slate-100 bg-white shadow-2xl p-4">
                 <img
-                  src="https://picsum.photos/seed/prediction-dashboard/1200/700"
+                  src="/assets/images/prediction-dashboard.png"
                   alt="Prediction markets admin dashboard"
                   className="w-full h-full object-cover rounded-4xl"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>

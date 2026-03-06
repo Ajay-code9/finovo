@@ -130,7 +130,7 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl bg-white border border-slate-100 shadow-2xl rounded-4xl mt-4 overflow-hidden"
+            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl bg-white border border-slate-100 shadow-xl rounded-3xl mt-4 overflow-hidden"
             onMouseEnter={cancelSubmenuClose}
             onMouseLeave={scheduleSubmenuClose}
           >

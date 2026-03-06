@@ -28,28 +28,28 @@ const mobileTabs = [
     id: 'onboarding',
     label: 'Secure onboarding',
     sub: 'Register with magic links or SSO.',
-    image: 'https://picsum.photos/seed/wl-onboarding/900/1600',
+    image: '/assets/images/wl-onboarding.png',
     alt: 'Mobile onboarding for trading app',
   },
   {
     id: 'funding',
     label: 'Quick funding',
     sub: 'Fast deposits and verified withdrawals.',
-    image: 'https://picsum.photos/seed/wl-funding/900/1600',
+    image: '/assets/images/wl-funding.png',
     alt: 'Mobile funding experience',
   },
   {
     id: 'smart',
     label: 'Smart trading',
     sub: 'Access markets with powerful tools.',
-    image: 'https://picsum.photos/seed/wl-smart/900/1600',
+    image: '/assets/images/wl-smart.png',
     alt: 'Mobile trading interface',
   },
   {
     id: 'everywhere',
     label: 'Everywhere',
     sub: 'Market news & education in‑app.',
-    image: 'https://picsum.photos/seed/wl-everywhere/900/1600',
+    image: '/assets/images/wl-everywhere.png',
     alt: 'Insights and education on mobile',
   },
 ] as const;
@@ -133,7 +133,7 @@ export default function WhiteLabel() {
               white‑label branding. Your traders stay engaged and your brand stays front and centre.
             </p>
             <div className="flex flex-wrap gap-4 items-center">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors">
                 Chat with an expert <ArrowRight className="w-4 h-4" />
               </button>
               <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm md:text-base font-semibold text-finovo-dark hover:text-finovo-green transition-colors">
@@ -156,7 +156,7 @@ export default function WhiteLabel() {
             <div className="relative w-full max-w-xl">
               <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-12 -right-8 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
-              <div className="relative rounded-3xl border border-slate-100 bg-finovo-dark shadow-2xl p-6">
+              <div className="relative rounded-2xl border border-slate-100 bg-finovo-dark shadow-xl p-6">
                 <img
                   src={wlHero}
                   alt="Finovo white-label trading platform with stacked mobile layouts"
@@ -263,15 +263,15 @@ export default function WhiteLabel() {
               <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-finovo-green/15 blur-3xl" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-emerald-500/20 blur-3xl" />
               <div className="relative flex gap-6 justify-end items-center">
-                <div className="w-40 sm:w-48 rounded-3xl overflow-hidden border border-white/20 bg-black/80 shadow-2xl translate-y-4">
+                <div className="w-40 sm:w-48 rounded-2xl overflow-hidden border border-white/20 bg-black/80 shadow-xl translate-y-4">
                   <img
-                    src="https://picsum.photos/seed/wl-secondary-mobile/950/1800"
+                    src="/assets/images/wl-secondary-mobile.png"
                     alt="Secondary trading mobile interface"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
-                <div className="w-44 sm:w-52 rounded-3xl overflow-hidden border border-white/20 bg-black/90 shadow-2xl">
+                <div className="w-44 sm:w-52 rounded-2xl overflow-hidden border border-white/20 bg-black/90 shadow-xl">
                   <img
                     src={activeMobile.image}
                     alt={activeMobile.alt}
@@ -344,13 +344,13 @@ export default function WhiteLabel() {
               Finovo connects your trading stack – platforms, liquidity, CRM, KYC and payments – into one turnkey
               environment, so your team can focus on growth instead of plumbing.
             </p>
-            <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-600 transition-colors">
               Explore our turnkey setup
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
           <div className="relative">
-            <div className="rounded-3xl border border-white/10 bg-black/40 shadow-2xl overflow-hidden">
+            <div className="rounded-2xl border border-white/10 bg-black/40 shadow-xl overflow-hidden">
               <img
                 src={wlIntegrationsHub}
                 alt="Finovo integrations hub layout"
@@ -561,7 +561,7 @@ export default function WhiteLabel() {
                 Share your business model and we’ll show you exactly how Finovo can power it – from onboarding and
                 trading to reporting and risk.
               </p>
-              <button className="px-9 py-3.5 bg-finovo-green text-white rounded-full font-semibold text-sm md:text-base hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center gap-2">
+              <button className="px-9 py-3.5 bg-finovo-green text-white rounded-full font-semibold text-sm md:text-base hover:bg-emerald-600 transition-colors inline-flex items-center gap-2">
                 Talk to our team
                 <ArrowRight className="w-4 h-4" />
               </button>

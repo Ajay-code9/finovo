@@ -22,7 +22,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
 
       {/* Floating Chat Button */}
       {!isMenuOpen && (
-        <button className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-finovo-green rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform z-50">
+        <button className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-finovo-green rounded-full shadow-lg flex items-center justify-center text-white hover:bg-emerald-600 transition-colors z-50">
           <MessageSquare className="w-7 h-7 md:w-8 md:h-8" />
         </button>
       )}

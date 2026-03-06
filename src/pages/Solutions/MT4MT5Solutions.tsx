@@ -188,7 +188,7 @@ export default function MT4MT5Solutions() {
               and client experience without swapping platforms.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-500 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-500 transition-colors">
                 Start 3 months for free <ArrowRight className="w-4 h-4" />
               </button>
               <span className="text-xs md:text-sm text-slate-400">
@@ -202,7 +202,7 @@ export default function MT4MT5Solutions() {
               <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
               <div className="relative flex gap-6 justify-end items-center">
-                <div className="w-52 sm:w-64 rounded-3xl overflow-hidden border border-white/15 bg-black/50 shadow-2xl">
+                <div className="w-52 sm:w-64 rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-xl">
                   <img
                     src="https://picsum.photos/seed/mt4-dashboard-left/900/650"
                     alt="MT4/MT5 trading screens"
@@ -210,7 +210,7 @@ export default function MT4MT5Solutions() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="w-40 sm:w-52 rounded-3xl overflow-hidden border border-white/15 bg-black/70 shadow-2xl translate-y-6">
+                <div className="w-40 sm:w-52 rounded-2xl overflow-hidden border border-white/15 bg-black/80 shadow-xl translate-y-4">
                   <img
                     src="https://picsum.photos/seed/mt4-dashboard-right/800/620"
                     alt="MetaTrader charts and orders"

@@ -28,8 +28,8 @@ const NetworkBackground = () => {
 
     let animationFrameId: number;
     let particles: any[] = [];
-    const particleCount = 80;
-    const connectionDistance = 180;
+    const particleCount = 40;
+    const connectionDistance = 140;
 
     class Particle {
       x: number;
@@ -41,8 +41,8 @@ const NetworkBackground = () => {
       constructor(width: number, height: number) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
+        this.vx = (Math.random() - 0.5) * 0.25;
+        this.vy = (Math.random() - 0.5) * 0.25;
         this.size = Math.random() * 1.5 + 0.5;
       }
 
@@ -322,7 +322,7 @@ const SolutionSelector = () => {
           {solutions.map((sol) => (
             <div 
               key={sol.id}
-              className={`p-8 rounded-2xl border transition-all duration-500 text-left flex flex-col h-full ${activeTab === sol.id ? 'bg-finovo-dark border-finovo-dark text-white shadow-2xl scale-105 z-10' : 'bg-white border-slate-100 text-finovo-dark'}`}
+              className={`p-8 rounded-2xl border transition-all duration-300 text-left flex flex-col h-full ${activeTab === sol.id ? 'bg-finovo-dark border-finovo-dark text-white shadow-lg z-10' : 'bg-white border-slate-100 text-finovo-dark'}`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${activeTab === sol.id ? 'bg-white/10' : 'bg-finovo-gray'}`}>
                 <sol.icon className={`w-6 h-6 ${activeTab === sol.id ? 'text-finovo-green' : 'text-finovo-green'}`} />
@@ -419,35 +419,145 @@ const IntegrationsHub = () => {
             <div className="absolute w-[280px] h-[280px] border border-white/10 rounded-full animate-spin-reverse" />
             
             {/* Central Logo */}
-            <div className="relative z-10 w-24 h-24 bg-finovo-green rounded-3xl flex items-center justify-center shadow-2xl shadow-finovo-green/40">
+            <div className="relative z-10 w-24 h-24 bg-finovo-green rounded-2xl flex items-center justify-center shadow-xl shadow-finovo-green/30">
               <div className="flex gap-0.5">
                 <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm" />
                 <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm opacity-80" />
               </div>
             </div>
 
-            {/* Orbiting Icons */}
+            {/* Orbiting Icons (static positions for performance) */}
             {icons.map((icon, i) => {
               const angle = (i * 360) / icons.length;
               const radius = i % 2 === 0 ? 200 : 140;
+              const x = radius * Math.cos((angle * Math.PI) / 180);
+              const y = radius * Math.sin((angle * Math.PI) / 180);
               return (
-                <motion.div
-                  key={i}
+                <div
+                  key={icon.name}
                   className={`absolute w-12 h-12 ${icon.color} rounded-xl flex items-center justify-center shadow-lg`}
-                  animate={{
-                    x: radius * Math.cos((angle * Math.PI) / 180),
-                    y: radius * Math.sin((angle * Math.PI) / 180),
-                  }}
-                  transition={{
-                    duration: 0,
-                    repeat: Infinity,
-                  }}
+                  style={{ transform: `translate(${x}px, ${y}px)` }}
                 >
                   <div className="w-6 h-6 bg-white/20 rounded-sm" />
-                </motion.div>
+                </div>
               );
             })}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ResultsStrip = () => {
+  const stats = [
+    { label: '$500M+', sub: 'Monthly volume powered' },
+    { label: '40K+', sub: 'Active trader accounts' },
+    { label: '80+', sub: 'Broker & prop clients' },
+    { label: '5+', sub: 'Years building Finovo' },
+  ];
+
+  return (
+    <section className="py-16 md:py-20 bg-white border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-10">
+        <div className="max-w-md">
+          <p className="text-[11px] font-semibold text-finovo-green uppercase tracking-[0.22em] mb-2">
+            Finovo in numbers
+          </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-finovo-dark mb-3">
+            Serious infrastructure. Real outcomes.
+          </h2>
+          <p className="text-sm md:text-base text-finovo-muted">
+            We focus on the metrics that matter to brokers and prop firms – execution, uptime and account growth.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 flex-1 min-w-[260px]">
+          {stats.map((item) => (
+            <div key={item.sub} className="rounded-2xl border border-slate-100 bg-finovo-gray px-5 py-4">
+              <div className="text-xl md:text-2xl font-display font-semibold text-finovo-dark">
+                {item.label}
+              </div>
+              <div className="text-xs md:text-sm text-finovo-muted mt-1">
+                {item.sub}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CaseStudySection = () => {
+  return (
+    <section className="py-20 bg-finovo-gray">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 items-center">
+        <div>
+          <p className="text-[11px] font-semibold text-finovo-green uppercase tracking-[0.22em] mb-2">
+            Customer story
+          </p>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-finovo-dark mb-4">
+            How a multi-region broker consolidated tech and scaled faster.
+          </h2>
+          <p className="text-sm md:text-base text-finovo-muted mb-4 max-w-xl">
+            A fast-growing CFD and prop broker migrated from four separate vendors to the Finovo stack – and turned
+            fragmented operations into one orchestrated platform.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+            {[
+              { label: '+32%', sub: 'Increase in funded accounts' },
+              { label: '-45%', sub: 'Reduction in support tickets' },
+              { label: '99.95%', sub: 'Platform uptime after migration' },
+            ].map((item) => (
+              <div key={item.sub} className="rounded-2xl bg-white border border-slate-100 px-4 py-4">
+                <div className="text-xl font-display font-semibold text-finovo-dark">
+                  {item.label}
+                </div>
+                <div className="text-xs text-finovo-muted mt-1">
+                  {item.sub}
+                </div>
+              </div>
+            ))}
+          </div>
+          <ul className="space-y-2 text-sm md:text-base text-finovo-dark mb-6">
+            <li className="flex gap-2">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-finovo-green" />
+              <span>Single view of clients, risk and liquidity across brands.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-finovo-green" />
+              <span>Integrated MT4/5, CRM, client zone and payments.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-finovo-green" />
+              <span>Migration completed with no trading downtime.</span>
+            </li>
+          </ul>
+          <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-finovo-dark text-white text-sm md:text-base font-semibold hover:bg-black transition-colors">
+            Read full case study
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="rounded-3xl bg-white border border-slate-100 shadow-xl p-6 md:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-finovo-green/10 flex items-center justify-center text-finovo-green">
+              <LayoutDashboard className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-finovo-dark">Operations Lead, Multi-brand Broker</div>
+              <div className="text-[11px] text-finovo-muted uppercase tracking-[0.18em]">
+                EMEA &amp; APAC
+              </div>
+            </div>
+          </div>
+          <p className="text-sm md:text-base text-finovo-dark mb-4">
+            “Finovo helped us consolidate three internal tools and two external vendors into one stack. Our teams finally
+            work from the same live data – and our traders see faster onboarding, fewer errors and a more stable platform.”
+          </p>
+          <p className="text-xs text-finovo-muted">
+            This is an example scenario for illustration only. Talk to our team to see how Finovo can adapt to your exact setup.
+          </p>
         </div>
       </div>
     </section>
@@ -462,7 +572,7 @@ const PowerSuiteSection = () => {
       icon: Database,
       tag: "CORE TECH",
       link: "/services/forex-crm",
-      image: "https://picsum.photos/seed/finovo-crm/280/160"
+      image: "/assets/images/homepage1.png"
     },
     {
       title: "Multi-Asset Liquidity Provider",
@@ -470,7 +580,7 @@ const PowerSuiteSection = () => {
       icon: Globe,
       tag: "LIQUIDITY",
       link: "/liquidity/prime",
-      image: "https://picsum.photos/seed/finovo-liquidity/280/160"
+      image: "/assets/images/homepage2.png"
     },
     {
       title: "Prop Trading Technology",
@@ -478,7 +588,7 @@ const PowerSuiteSection = () => {
       icon: Zap,
       tag: "PROP FIRMS",
       link: "/solutions/prop-trading",
-      image: "https://picsum.photos/seed/finovo-prop/280/160"
+      image: "/assets/images/homepage3.png"
     },
     {
       title: "MT4/MT5 White Label",
@@ -486,7 +596,7 @@ const PowerSuiteSection = () => {
       icon: LayoutDashboard,
       tag: "PLATFORMS",
       link: "/solutions/mt4-mt5",
-      image: "https://picsum.photos/seed/finovo-platform/280/160"
+      image: "/assets/images/homepage4.png"
     }
   ];
 
@@ -505,15 +615,15 @@ const PowerSuiteSection = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {features.map((f, i) => (
-            <div key={i} className="group p-10 bg-white rounded-[2.5rem] border border-slate-100 hover:border-finovo-green/30 transition-all duration-500 hover:shadow-2xl hover:shadow-finovo-green/5">
+            <div key={i} className="group p-10 bg-white rounded-3xl border border-slate-100 hover:border-finovo-green/30 transition-all duration-300 hover:shadow-xl hover:shadow-finovo-green/5">
               <div className="flex justify-between items-start mb-6">
                 <span className="text-[10px] font-black text-finovo-muted uppercase tracking-[0.2em] bg-finovo-gray px-3 py-1 rounded-full">{f.tag}</span>
               </div>
-              <div className="w-full mb-8 h-48 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80">
+              <div className="w-full mb-8 min-h-[200px] h-72 rounded-xl overflow-hidden bg-slate-50/50 flex items-center justify-center p-2">
                 <img
                   src={f.image}
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full w-auto h-auto object-contain object-center"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
@@ -542,8 +652,8 @@ const PlexusBackground = () => {
 
     let animationFrameId: number;
     let particles: { x: number; y: number; z: number; vx: number; vy: number; vz: number; size: number }[] = [];
-    const particleCount = 140;
-    const connectionDistance = 280;
+    const particleCount = 60;
+    const connectionDistance = 220;
     const focalLength = 400;
 
     const resize = () => {
@@ -559,9 +669,9 @@ const PlexusBackground = () => {
           x: (Math.random() - 0.5) * canvas.width * 1.5,
           y: (Math.random() - 0.5) * canvas.height * 1.5,
           z: Math.random() * focalLength * 2,
-          vx: (Math.random() - 0.5) * 1.2,
-          vy: (Math.random() - 0.5) * 1.2,
-          vz: (Math.random() - 0.5) * 1.2,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          vz: (Math.random() - 0.5) * 0.8,
           size: Math.random() * 3 + 1.5,
         });
       }
@@ -662,7 +772,7 @@ const MT5SolutionsSection = () => {
               A fully managed service environment for MT4/5 – engineered for rapid deployment and confident scaling. Use your existing license; we provide the tech.
             </p>
             <div className="flex flex-wrap gap-6">
-              <button className="px-10 py-5 bg-finovo-green text-white rounded-full font-bold hover:opacity-90 transition-all shadow-2xl shadow-finovo-green/20 flex items-center gap-3">
+              <button className="px-10 py-5 bg-finovo-green text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors shadow-lg shadow-finovo-green/20 flex items-center gap-3">
                 Explore our solutions <ArrowRight className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-4">
@@ -695,7 +805,7 @@ const MT5SolutionsSection = () => {
                 { title: 'Expert Support', desc: '24/7 technical assistance from platform specialists.', icon: Globe },
                 { title: 'Seamless Migration', desc: 'Switch your existing infrastructure with zero downtime.', icon: ArrowUpRight }
               ].map((item, i) => (
-                <div key={i} className="p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2rem] hover:bg-white/10 transition-all group">
+                <div key={i} className="p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-4xl hover:bg-white/10 transition-all group">
                   <div className="w-12 h-12 bg-finovo-green/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-finovo-green transition-colors">
                     <item.icon className="w-6 h-6 text-finovo-green group-hover:text-white transition-colors" />
                   </div>
@@ -715,14 +825,16 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-10 overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center pt-1 md:pt-2 overflow-hidden">
         <NetworkBackground />
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-0 relative z-10">
+          <div className="flex-1 flex lg:justify-center min-w-0">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="min-w-0 max-w-[520px] w-full"
+            >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-finovo-green/10 border border-finovo-green/20 rounded-full mb-4">
               <Zap className="w-4 h-4 text-finovo-green" />
               <span className="text-finovo-green text-xs font-black tracking-widest uppercase">Market #1 Brokerage Tech Partner</span>
@@ -745,120 +857,18 @@ export default function Home() {
                 <span className="h-px w-10 bg-finovo-green" />
               </button>
             </div>
-          </motion.div>
-
-          <div className="relative hidden lg:flex justify-end perspective-[1800px]">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              whileHover={{ y: -12, rotateX: 6, rotateY: -8 }}
-              className="relative z-10"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* Main device showcase card */}
-              <div className="relative pb-16" style={{ transform: 'translateZ(40px)' }}>
-                {/* Glow and stacked card for 3D depth */}
-                <div className="absolute inset-0 translate-x-4 translate-y-6 bg-white/70 rounded-[3rem] shadow-2xl shadow-slate-900/20 -z-10" />
-                <div className="absolute -inset-10 bg-linear-to-br from-finovo-green/25 via-emerald-500/10 to-transparent blur-3xl -z-20" />
-
-                <div className="bg-white p-5 rounded-[3rem] shadow-[0_40px_90px_rgba(15,23,42,0.45)] border border-slate-100">
-                  <div className="relative rounded-[2.5rem] bg-linear-to-br from-finovo-dark via-slate-900 to-finovo-green/25 p-6 overflow-hidden h-[360px] flex items-center">
-                  {/* Desktop dashboard mock */}
-                  <div className="w-full h-full rounded-3xl bg-black/30 border border-white/10 shadow-2xl shadow-black/40 relative overflow-hidden">
-                    <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-red-400" />
-                        <span className="w-2 h-2 rounded-full bg-yellow-300" />
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                      </div>
-                      <span className="text-xs font-semibold text-slate-300 tracking-widest uppercase">
-                        Live Trading Overview
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-4 p-6">
-                      <div className="col-span-2 rounded-2xl bg-linear-to-br from-finovo-green/40 to-emerald-500/10 border border-emerald-300/40 p-4 flex flex-col justify-between">
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-[10px] font-black tracking-[0.2em] text-emerald-100 uppercase">
-                            Equity Curve
-                          </span>
-                          <span className="text-xs font-semibold text-emerald-50 bg-emerald-500/20 px-2 py-0.5 rounded-full">
-                            +18.4%
-                          </span>
-                        </div>
-                        <div className="h-24 rounded-xl bg-emerald-500/10 border border-emerald-200/30" />
-                        <p className="text-[11px] text-emerald-50/90 mt-3">
-                          Aggregated P&amp;L and volume across your entire book in real time.
-                        </p>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="rounded-2xl bg-slate-900/70 border border-white/10 p-3">
-                          <p className="text-[10px] text-slate-400 mb-1">Active Accounts</p>
-                          <p className="text-xl font-black text-white">2,430</p>
-                          <p className="text-[10px] text-emerald-300 mt-1">+120 today</p>
-                        </div>
-                        <div className="rounded-2xl bg-slate-900/70 border border-white/10 p-3">
-                          <p className="text-[10px] text-slate-400 mb-1">Average Spread</p>
-                          <p className="text-xl font-black text-white">0.3 pips</p>
-                          <p className="text-[10px] text-slate-400 mt-1">EURUSD · Major FX</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Mobile screen overlay */}
-                  <div className="absolute -left-10 bottom-6 w-40 h-72 rounded-[1.75rem] bg-slate-900 border border-white/15 shadow-[0_26px_60px_rgba(15,23,42,0.65)] overflow-hidden" style={{ transform: 'translateZ(80px)' }}>
-                    <div className="h-8 bg-slate-800/80 flex items-center justify-center text-[9px] text-slate-300 tracking-[0.2em] uppercase">
-                      Trader App
-                    </div>
-                    <div className="p-3 space-y-3">
-                      <div className="rounded-xl bg-finovo-green/10 border border-finovo-green/40 p-2">
-                        <p className="text-[9px] text-slate-300 mb-1">Account Balance</p>
-                        <p className="text-sm font-bold text-white">€24,580.20</p>
-                        <p className="text-[9px] text-emerald-300 mt-0.5">+€640 today</p>
-                      </div>
-                      <div className="rounded-xl bg-slate-800/70 border border-white/10 p-2">
-                        <p className="text-[9px] text-slate-300 mb-1">Open Positions</p>
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between text-[9px] text-slate-200">
-                            <span>EURUSD</span>
-                            <span className="text-emerald-300">+1.2%</span>
-                          </div>
-                          <div className="flex items-center justify-between text-[9px] text-slate-200">
-                            <span>XAUUSD</span>
-                            <span className="text-emerald-300">+0.8%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating awards row */}
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-4 w-max z-20">
-                  {[
-                    { label: 'BEST WHITE LABEL PROVIDER', award: 'WIKI FX 2023' },
-                    { label: 'BEST FOREX & PROP TURNKEY', award: 'PROFX EXPO 2025' },
-                    { label: 'BEST TOP SOCIAL TRADING', award: 'FOREX TRADERS 2025' }
-                  ].map((award, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.5 + (i * 0.1) }}
-                      className="bg-white px-6 py-4 rounded-2xl shadow-xl border border-slate-50 flex flex-col items-center text-center min-w-[160px]"
-                    >
-                      <div className="w-10 h-10 bg-finovo-green/10 rounded-full mb-2 flex items-center justify-center">
-                        <Zap className="text-finovo-green w-5 h-5" />
-                      </div>
-                      <span className="text-[8px] font-black text-finovo-dark leading-tight mb-1 uppercase tracking-wider">{award.label}</span>
-                      <span className="text-[10px] font-bold text-finovo-muted">{award.award}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
+          </div>
+
+          <div className="hidden lg:flex flex-1 justify-end items-center min-w-0 shrink-0">
+            <div className="overflow-hidden max-w-[580px] xl:max-w-[680px] 2xl:max-w-[780px] w-full ml-auto">
+              <img
+                src="/assets/images/homehero.png"
+                alt="Finovo trading infrastructure overview"
+                className="w-full h-auto object-contain object-right"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -872,8 +882,14 @@ export default function Home() {
       {/* Power Suite Section */}
       <PowerSuiteSection />
 
+      {/* Results strip */}
+      <ResultsStrip />
+
       {/* Integrations Hub */}
       <IntegrationsHub />
+
+      {/* Case study / story */}
+      <CaseStudySection />
 
       {/* Pricing Section */}
       <PricingSection />
@@ -886,10 +902,10 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-display font-semibold text-white mb-3 tracking-tight">Ready to Scale Your Brokerage?</h2>
               <p className="text-white/90 text-sm md:text-base mb-8 max-w-xl mx-auto font-medium">Join 50+ global brokers who trust Finovo for their core technology infrastructure.</p>
               <div className="flex flex-wrap justify-center gap-4">
-                <button className="px-6 py-2.5 bg-white text-emerald-700 rounded-lg font-semibold text-sm border border-emerald-200/80 hover:bg-slate-50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
+                <button className="px-6 py-2.5 bg-white text-emerald-700 rounded-lg font-semibold text-sm border border-emerald-200/80 hover:bg-slate-50 hover:shadow-md transition-colors duration-200 cursor-pointer">
                   Schedule a Demo
                 </button>
-                <button className="px-6 py-2.5 bg-finovo-dark text-white rounded-lg font-semibold text-sm hover:bg-black hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
+                <button className="px-6 py-2.5 bg-finovo-dark text-white rounded-lg font-semibold text-sm hover:bg-black hover:shadow-md transition-colors duration-200 cursor-pointer">
                   Contact Sales
                 </button>
               </div>

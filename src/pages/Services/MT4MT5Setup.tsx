@@ -147,7 +147,7 @@ export default function MT4MT5Setup() {
               so you can focus on clients, regulation and growth.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-600 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-600 transition-colors">
                 Get started for free
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -167,7 +167,7 @@ export default function MT4MT5Setup() {
             <div className="relative w-full max-w-xl">
               <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
-              <div className="relative rounded-3xl border border-slate-100 bg-white shadow-2xl p-4">
+              <div className="relative rounded-2xl border border-slate-100 bg-white shadow-xl p-4">
                 <img
                   src={heroImage}
                   alt="MetaTrader 4 and 5 terminals ready for deployment"
@@ -278,7 +278,7 @@ export default function MT4MT5Setup() {
               <li>✓ Liquidity and data‑feed connectivity</li>
               <li>✓ 24/7 MetaTrader support from specialists</li>
             </ul>
-            <button className="mt-5 inline-flex items-center gap-2 px-7 py-3 rounded-full bg-finovo-green text-white text-sm md:text-base font-semibold hover:bg-emerald-600 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <button className="mt-5 inline-flex items-center gap-2 px-7 py-3 rounded-full bg-finovo-green text-white text-sm md:text-base font-semibold hover:bg-emerald-600 transition-colors">
               Get it for free
               <ArrowRight className="w-4 h-4" />
             </button>

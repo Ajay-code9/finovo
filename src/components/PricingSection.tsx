@@ -143,13 +143,13 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-display font-semibold text-finovo-dark mb-6">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-finovo-dark mb-4">
             {title}
           </h2>
-          <p className="text-finovo-muted text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-finovo-muted text-base md:text-lg max-w-2xl mx-auto mb-8">
             {subtitle}
           </p>
 
@@ -186,14 +186,14 @@ const PricingSection: React.FC<PricingSectionProps> = ({
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-8">
+        <div className="grid lg:grid-cols-3 gap-6 mb-6">
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative p-8 rounded-3xl border transition-all duration-300 ${
+              className={`relative p-7 rounded-2xl border transition-colors duration-200 ${
                 plan.popular
-                  ? "border-finovo-green shadow-2xl shadow-finovo-green/10 scale-105 z-10"
-                  : "border-slate-100 hover:border-finovo-green/30"
+                  ? "border-finovo-green bg-white"
+                  : "border-slate-200 bg-white hover:border-finovo-green/40"
               }`}
             >
               {plan.popular && (
@@ -203,25 +203,25 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               )}
 
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-finovo-dark mb-2">
+                <h3 className="text-xl md:text-2xl font-semibold text-finovo-dark mb-1.5">
                   {plan.name}
                 </h3>
-                <p className="text-finovo-muted text-sm mb-6">{plan.desc}</p>
+                <p className="text-finovo-muted text-sm mb-4">{plan.desc}</p>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-finovo-dark">
+                  <span className="text-3xl md:text-4xl font-semibold text-finovo-dark">
                     €{plan.price}
                   </span>
-                  <span className="text-finovo-muted font-bold">/month</span>
+                  <span className="text-finovo-muted font-medium">/month</span>
                 </div>
-                <p className="text-finovo-green text-xs font-bold mt-2">
+                <p className="text-finovo-green text-xs font-semibold mt-1.5">
                   {plan.crmPrice}
                 </p>
               </div>
 
               <button
-                className={`w-full py-4 rounded-full text-base font-bold transition-all mb-10 ${
+                className={`w-full py-3.5 rounded-full text-sm md:text-base font-semibold transition-colors mb-8 ${
                   plan.popular
-                    ? "bg-finovo-green text-white hover:opacity-90 shadow-lg shadow-finovo-green/20"
+                    ? "bg-finovo-green text-white hover:bg-emerald-600"
                     : "bg-finovo-dark text-white hover:bg-black"
                 }`}
               >

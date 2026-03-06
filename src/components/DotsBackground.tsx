@@ -19,14 +19,15 @@ export const DotsBackground: React.FC = () => {
       size: number;
     }[] = [];
 
-    const particleCount = 80;
-    const connectionDistance = 180;
+    // Keep this light so it doesn't slow down scrolling
+    const particleCount = 40;
+    const connectionDistance = 140;
 
     const createParticle = (width: number, height: number) => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
       size: Math.random() * 1.5 + 0.5,
     });
 

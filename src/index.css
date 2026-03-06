@@ -5,9 +5,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Inter", sans-serif;
 
-  /* FinCRM-inspired Green Palette */
-  --color-finovo-green: #22c55e;
-  --color-finovo-green-hover: #16a34a;
+  /* Finovo Green Palette - slightly deeper, more mature */
+  --color-finovo-green: #16a34a;
+  --color-finovo-green-hover: #15803d;
   --color-finovo-dark: #1a1a1a;
   --color-finovo-dark-light: #2d333d;
   --color-finovo-gray: #f8f9fa;
@@ -32,14 +32,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3, h4, h5, h6, 
-  .font-bold, .font-semibold, .font-black,
-  b, strong {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  b,
+  strong {
     font-weight: 600;
-  }
-  
-  .font-light, .font-thin, .font-normal {
-    font-weight: 400;
   }
 }
 

@@ -116,7 +116,7 @@ export default function BackOffice() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact-us"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors cursor-pointer"
               >
                 Get started <ArrowRight className="w-4 h-4" />
               </Link>
@@ -141,7 +141,7 @@ export default function BackOffice() {
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
               <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-[2rem] bg-black/80 border border-white/10 shadow-2xl overflow-hidden translate-y-6">
+                <div className="w-32 sm:w-36 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden translate-y-4">
                   <img
                     src="https://picsum.photos/seed/backoffice-phone-1/400/800"
                     alt="Back office mobile view 1"
@@ -149,7 +149,7 @@ export default function BackOffice() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="w-36 sm:w-40 rounded-[2rem] bg-black/80 border border-white/10 shadow-2xl overflow-hidden">
+                <div className="w-36 sm:w-40 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden">
                   <img
                     src="https://picsum.photos/seed/backoffice-phone-2/420/840"
                     alt="Back office mobile view 2"
@@ -527,7 +527,7 @@ export default function BackOffice() {
               <div className="absolute w-[360px] h-[360px] border border-white/5 rounded-full animate-spin-slow" />
               <div className="absolute w-[260px] h-[260px] border border-white/10 rounded-full animate-spin-reverse" />
 
-              <div className="relative z-10 w-24 h-24 bg-finovo-green rounded-3xl flex items-center justify-center shadow-2xl shadow-finovo-green/40">
+              <div className="relative z-10 w-24 h-24 bg-finovo-green rounded-2xl flex items-center justify-center shadow-xl shadow-finovo-green/40">
                 <div className="flex gap-0.5">
                   <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm" />
                   <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm opacity-80" />

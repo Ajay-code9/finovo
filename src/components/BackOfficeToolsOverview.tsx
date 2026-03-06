@@ -66,18 +66,18 @@ export const BackOfficeToolsOverview: React.FC<BackOfficeToolsOverviewProps> = (
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <div className="w-full max-w-md aspect-4/3 rounded-full bg-finovo-gray/60 border border-slate-200 shadow-inner relative flex items-center justify-center">
-            <div className="absolute w-16 h-16 rounded-full bg-finovo-green/10 border border-finovo-green/40" />
-            <div className="absolute -top-6 left-10 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] font-semibold text-finovo-dark">
+          <div className="w-full max-w-md aspect-4/3 rounded-2xl bg-finovo-gray border border-slate-200 relative flex items-center justify-center">
+            <div className="absolute w-20 h-20 rounded-full bg-finovo-green/10 border border-finovo-green/40" />
+            <div className="absolute -top-6 left-10 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[11px] font-semibold text-finovo-dark">
               Cutting‑edge CRM
             </div>
-            <div className="absolute top-10 -right-4 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] font-semibold text-finovo-dark">
+            <div className="absolute top-10 -right-4 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[11px] font-semibold text-finovo-dark">
               Broker portal
             </div>
-            <div className="absolute -bottom-5 left-6 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] font-semibold text-finovo-dark">
+            <div className="absolute -bottom-5 left-6 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[11px] font-semibold text-finovo-dark">
               SiRIX broker
             </div>
-            <div className="absolute bottom-4 right-10 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] font-semibold text-finovo-dark">
+            <div className="absolute bottom-4 right-10 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[11px] font-semibold text-finovo-dark">
               Affiliates &amp; IBs
             </div>
           </div>

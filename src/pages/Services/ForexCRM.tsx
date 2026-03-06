@@ -77,7 +77,7 @@ export default function ForexCRM() {
               activity, IBs and operations so your team can move faster with less noise.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors">
                 Chat with an expert
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -99,20 +99,20 @@ export default function ForexCRM() {
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
               <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-4xl bg-finovo-dark border border-white/10 shadow-2xl overflow-hidden translate-y-6">
+                <div className="w-32 sm:w-36 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden translate-y-4">
                   <img
-                    src="https://picsum.photos/seed/forex-crm-left/420/820"
+                    src="/assets/images/forex-crm-left.png"
                     alt="Forex CRM mobile dashboard"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
-                <div className="w-36 sm:w-40 rounded-4xl bg-finovo-dark border border-white/10 shadow-2xl overflow-hidden">
+                <div className="w-36 sm:w-40 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden">
                   <img
-                    src="https://picsum.photos/seed/forex-crm-right/440/840"
+                    src="/assets/images/forex-crm-right.png"
                     alt="Forex CRM trading overview"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -151,10 +151,10 @@ export default function ForexCRM() {
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md rounded-3xl border border-slate-100 bg-finovo-gray shadow-xl p-4">
               <img
-                src="https://picsum.photos/seed/forex-suite/1200/700"
+                src="/assets/images/forex-suite.png"
                 alt="Diagram of trading platform, CRM, liquidity and broker portal connected"
                 className="w-full h-full object-cover rounded-2xl"
-                referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
           </div>
@@ -173,9 +173,9 @@ export default function ForexCRM() {
           'Multi‑asset liquidity connectivity',
           'Real‑time execution metrics',
         ]}
-        primaryImageSrc="https://picsum.photos/seed/forex-tv-left/1200/700"
+        primaryImageSrc="/assets/images/forex-tv-left.png"
         primaryImageAlt="Trading platform order list"
-        secondaryImageSrc="https://picsum.photos/seed/forex-tv-right/1200/700"
+        secondaryImageSrc="/assets/images/forex-tv-right.png"
         secondaryImageAlt="TradingView style chart"
       />
 
@@ -192,10 +192,10 @@ export default function ForexCRM() {
           <div className="lg:col-span-6">
             <div className="rounded-3xl border border-slate-100 bg-finovo-gray shadow-xl p-4">
               <img
-                src="https://picsum.photos/seed/forex-liquidity/1200/700"
+                src="/assets/images/forex-liquidity.png"
                 alt="Grid of asset classes supported by Finovo liquidity"
                 className="w-full h-full object-cover rounded-2xl"
-                referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
           </div>

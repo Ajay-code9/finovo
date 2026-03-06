@@ -32,12 +32,12 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
 }) => {
   return (
     <section className="py-16 md:py-24 bg-finovo-dark">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
           className="lg:col-span-6"
         >
           <p className="text-sm font-semibold text-finovo-green mb-3 uppercase tracking-[0.2em]">
@@ -46,7 +46,7 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-white mb-4">
             {title}
           </h2>
-          <p className="text-white/80 text-base md:text-lg mb-4">
+          <p className="text-white/80 text-sm md:text-base mb-4">
             {description}
           </p>
           <p className="text-white/60 text-sm md:text-base mb-8 max-w-xl">
@@ -57,7 +57,7 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
             {bullets.map((label) => (
               <div
                 key={label}
-                className="px-4 py-2 rounded-full border border-white/15 text-xs md:text-sm text-white/90 bg-white/5 backdrop-blur-sm"
+                className="px-4 py-2 rounded-full border border-white/15 text-xs md:text-sm text-white/90 bg-white/5"
               >
                 {label}
               </div>
@@ -67,13 +67,13 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contact-us"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-500 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base hover:bg-emerald-500 transition-colors cursor-pointer"
             >
               {primaryCtaLabel} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact-us"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-finovo-dark font-semibold text-sm md:text-base hover:bg-slate-100 hover:shadow-md active:scale-[0.98] transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-finovo-dark font-semibold text-sm md:text-base hover:bg-slate-100 transition-colors cursor-pointer"
             >
               {secondaryCtaLabel}
             </Link>
@@ -81,10 +81,10 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
           className="lg:col-span-6 flex justify-end"
         >
           <div className="relative w-full max-w-md">
@@ -92,7 +92,7 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
             <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-emerald-500/10 blur-3xl" />
 
             <div className="relative flex gap-4 justify-end">
-              <div className="w-40 sm:w-48 rounded-3xl bg-black/40 border border-white/10 shadow-2xl backdrop-blur-xl overflow-hidden translate-y-6">
+              <div className="w-40 sm:w-48 rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden translate-y-4">
                 <img
                   src={primaryImageSrc}
                   alt={primaryImageAlt}
@@ -100,7 +100,7 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="w-44 sm:w-56 rounded-3xl bg-black/40 border border-white/10 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="w-44 sm:w-56 rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden">
                 <img
                   src={secondaryImageSrc}
                   alt={secondaryImageAlt}

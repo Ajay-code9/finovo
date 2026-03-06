@@ -64,42 +64,42 @@ export default function CFDBrokerage() {
       id: 'sirix',
       label: 'SiRIX & TradingView',
       detail: 'Professional-grade charting and analysis.',
-      image: 'https://picsum.photos/seed/sirix/900/550',
+      image: '/assets/images/cfd1.png',
       alt: 'Advanced trading charts on multiple screens',
     },
     {
       id: 'intuitive',
       label: 'Intuitive Design',
       detail: 'Simple, seamless trading experience.',
-      image: 'https://picsum.photos/seed/intuitive/900/550',
+      image: '/assets/images/cfd2.png',
       alt: 'Clean trading dashboard interface',
     },
     {
       id: 'accounts',
       label: 'Flexible Accounts',
       detail: 'Netting & hedging – your choice.',
-      image: 'https://picsum.photos/seed/accounts/900/550',
+      image: '/assets/images/cfd3.png',
       alt: 'Account overview and balances',
     },
     {
       id: 'chart',
       label: 'Chart Trading',
       detail: 'Trade directly from the chart.',
-      image: 'https://picsum.photos/seed/chart/900/550',
+      image: '/assets/images/cfd4.png',
       alt: 'Candlestick chart with trade markers',
     },
     {
       id: 'alerts',
       label: 'Smart Alerts',
       detail: 'Real-time price and event alerts.',
-      image: 'https://picsum.photos/seed/alerts/900/550',
+      image: '/assets/images/cfd5.png',
       alt: 'Notification panel with trading alerts',
     },
     {
       id: 'mobile',
       label: 'Mobile Access',
       detail: 'Trade anywhere, anytime.',
-      image: 'https://picsum.photos/seed/mobile/900/550',
+      image: '/assets/images/cfd6.png',
       alt: 'Trading app on a mobile phone',
     },
   ];
@@ -199,7 +199,7 @@ export default function CFDBrokerage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact-us"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-finovo-green text-white rounded-xl font-semibold hover:bg-emerald-600 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-finovo-green text-white rounded-xl font-semibold hover:bg-emerald-600 transition-colors cursor-pointer"
                 >
                   Get a Quote <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -263,15 +263,19 @@ export default function CFDBrokerage() {
       {/* Two-column: feature list + platform screenshot */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-finovo-dark mb-2">
-                Designed for Brokers, Built for Traders
-              </h2>
-              <p className="text-finovo-muted text-lg mb-2">Deliver a premium trading experience.</p>
-              <p className="text-finovo-green text-sm font-semibold mb-8">
-                Precision is the difference between trading and leading.
-              </p>
+          {/* Heading above grid so list + image align vertically */}
+          <div className="max-w-3xl mb-8">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-finovo-dark mb-2">
+              Designed for Brokers, Built for Traders
+            </h2>
+            <p className="text-finovo-muted text-lg mb-2">Deliver a premium trading experience.</p>
+            <p className="text-finovo-green text-sm font-semibold">
+              Precision is the difference between trading and leading.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+            <div className="lg:col-span-5 flex flex-col">
               <div className="space-y-2">
                 {platformFeatures.map((f) => (
                   <button
@@ -297,12 +301,13 @@ export default function CFDBrokerage() {
                 <p className="mt-4 text-finovo-muted text-sm pl-1">{activeFeature.detail}</p>
               )}
             </div>
+
             <div className="lg:col-span-7 flex justify-end">
-              <div className="w-full max-w-xl rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50">
+              <div className="w-full max-w-xl h-full flex items-center justify-center">
                 <img
                   src={activeFeature?.image}
                   alt={activeFeature?.alt ?? 'Trading platform'}
-                  className="w-full h-auto object-cover"
+                  className={`max-w-full object-contain ${activeFeature?.id === 'mobile' ? 'max-h-[420px]' : 'max-h-full'}`}
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -342,10 +347,10 @@ export default function CFDBrokerage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg">
                 <img
-                  src="https://picsum.photos/seed/brokerage/800/500"
+                  src="/assets/images/cfd-brokerage-dashboard.png"
                   alt="Brokerage dashboard"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 left-4 right-4 md:left-6 md:right-auto bg-white p-5 rounded-xl shadow-xl border border-slate-100 max-w-[220px]">
@@ -370,9 +375,9 @@ export default function CFDBrokerage() {
           'One-click trading',
           'Price alerts & social trading',
         ]}
-        primaryImageSrc="https://picsum.photos/seed/trade-mobile/350/650"
+        primaryImageSrc="/assets/images/cfd-trade-mobile.png"
         primaryImageAlt="Mobile trading app"
-        secondaryImageSrc="https://picsum.photos/seed/trade-main/420/720"
+        secondaryImageSrc="/assets/images/cfd-trade-main.png"
         secondaryImageAlt="Trading platform dashboard"
       />
 
@@ -484,10 +489,10 @@ export default function CFDBrokerage() {
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="w-full max-w-md rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-lg">
                 <img
-                  src="https://picsum.photos/seed/liquidity/800/520"
+                  src="/assets/images/cfd-liquidity.png"
                   alt="Liquidity and market depth dashboard"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -524,10 +529,10 @@ export default function CFDBrokerage() {
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
                 <img
-                  src="https://picsum.photos/seed/charting/960/520"
+                  src="/assets/images/cfd-charting.png"
                   alt="Advanced charting interface"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -537,10 +542,10 @@ export default function CFDBrokerage() {
             <div className="order-2 lg:order-1">
               <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
                 <img
-                  src="https://picsum.photos/seed/affiliates/960/520"
+                  src="/assets/images/cfd-affiliates.png"
                   alt="Affiliate & IB dashboard"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -623,10 +628,10 @@ export default function CFDBrokerage() {
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-xl">
                 <img
-                  src="https://picsum.photos/seed/social/960/520"
+                  src="/assets/images/cfd-social.png"
                   alt="Social trading interface"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -642,10 +647,10 @@ export default function CFDBrokerage() {
             <div className="order-2 lg:order-1">
               <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
                 <img
-                  src="https://picsum.photos/seed/sirix-broker/960/520"
+                  src="/assets/images/cfd-sirix-broker.png"
                   alt="Broker performance dashboard"
                   className="w-full h-auto object-cover"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>

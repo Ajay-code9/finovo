@@ -82,7 +82,7 @@ export default function PropCRM() {
               payouts and risk into one CRM built for prop firms.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+              <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors">
                 Talk to our CRM experts
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -104,20 +104,20 @@ export default function PropCRM() {
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
               <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-4xl bg-finovo-dark border border-white/10 shadow-2xl overflow-hidden translate-y-6">
+                <div className="w-32 sm:w-36 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden translate-y-4">
                   <img
-                    src="https://picsum.photos/seed/prop-crm-left/420/820"
+                    src="/assets/images/prop-crm-left.png"
                     alt="Prop CRM trader profile view"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
-                <div className="w-36 sm:w-40 rounded-4xl bg-finovo-dark border border-white/10 shadow-2xl overflow-hidden">
+                <div className="w-36 sm:w-40 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden">
                   <img
-                    src="https://picsum.photos/seed/prop-crm-right/440/840"
+                    src="/assets/images/prop-crm-right.png"
                     alt="Prop CRM challenge overview"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </div>
               </div>

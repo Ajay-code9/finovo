@@ -27,7 +27,7 @@ export default function PropTrading() {
       heading: 'Custom-designed funnels that match your prop brand.',
       blurb:
         'Fully branded onboarding flows with challenge selection, KYC steps, and payment in one smooth experience.',
-      image: 'https://picsum.photos/seed/prop-registration/1400/650',
+      image: '/assets/images/prop-registration.png',
       alt: 'Custom registration page for prop traders',
     },
     {
@@ -36,7 +36,7 @@ export default function PropTrading() {
       heading: 'Full control over plan creation and challenge management.',
       blurb:
         'Configure plans, rules, and notifications from a single hub so your operations team can move quickly and safely.',
-      image: 'https://picsum.photos/seed/prop-portal/1400/650',
+      image: '/assets/images/prop-portal.png',
       alt: 'Prop trading broker portal',
     },
     {
@@ -45,7 +45,7 @@ export default function PropTrading() {
       heading: 'Dashboards that keep traders focused and engaged.',
       blurb:
         'Clarity on equity, targets, and rules in real time, designed to keep your traders confident and compliant.',
-      image: 'https://picsum.photos/seed/prop-dashboard/1400/650',
+      image: '/assets/images/prop-dashboard.png',
       alt: 'Real-time trader dashboard',
     },
     {
@@ -54,7 +54,7 @@ export default function PropTrading() {
       heading: 'Automation that scales evaluations, payouts, and messaging.',
       blurb:
         'Drive growth with rule-based triggers for evaluations, promotions, and communications – without extra headcount.',
-      image: 'https://picsum.photos/seed/prop-automation/1400/650',
+      image: '/assets/images/prop-automation.png',
       alt: 'Automation tools for prop firm',
     },
   ];
@@ -96,7 +96,7 @@ export default function PropTrading() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact-us"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-finovo-green text-white font-semibold text-sm md:text-base shadow-md hover:bg-emerald-600 transition-colors cursor-pointer"
               >
                 Chat with an expert <ArrowRight className="w-4 h-4" />
               </Link>
@@ -121,17 +121,17 @@ export default function PropTrading() {
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
               <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-4xl bg-black/80 border border-white/10 shadow-2xl overflow-hidden translate-y-6">
+                <div className="w-32 sm:w-36 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden translate-y-4">
                   <img
-                    src="https://picsum.photos/seed/prop-phone-1/400/800"
+                    src="/assets/images/prop-phone-1.png"
                     alt="Prop trading mobile interface 1"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="w-36 sm:w-40 rounded-4xl bg-black/80 border border-white/10 shadow-2xl overflow-hidden">
+                <div className="w-36 sm:w-40 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden">
                   <img
-                    src="https://picsum.photos/seed/prop-phone-2/420/840"
+                    src="/assets/images/prop-phone-2.png"
                     alt="Prop trading mobile interface 2"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -300,9 +300,9 @@ export default function PropTrading() {
           'Seamless trading across mobile, desktop, and web',
           'Advanced order types, risk tools, and social trading',
         ]}
-        primaryImageSrc="https://picsum.photos/seed/prop-platform-1/350/650"
+        primaryImageSrc="/assets/images/prop-platform-1.png"
         primaryImageAlt="Prop trading mobile app"
-        secondaryImageSrc="https://picsum.photos/seed/prop-platform-2/420/720"
+        secondaryImageSrc="/assets/images/prop-platform-2.png"
         secondaryImageAlt="Prop trading platform dashboard"
       />
 
@@ -336,28 +336,28 @@ export default function PropTrading() {
                 id: 'keeper' as const,
                 label: 'Challenge Keeper',
                 description: 'Extend challenges based on performance.',
-                image: 'https://picsum.photos/seed/prop-challenge-keeper/1200/620',
+                image: '/assets/images/prop-challenge-keeper.png',
                 alt: 'Challenge keeper prompt for traders',
               },
               {
                 id: 'retry' as const,
                 label: 'Challenge Retry',
                 description: 'Offer second chances and reduce drop-offs.',
-                image: 'https://picsum.photos/seed/prop-challenge-retry/1200/620',
+                image: '/assets/images/prop-challenge-retry.png',
                 alt: 'Challenge retry dialog for traders',
               },
               {
                 id: 'leaderboard' as const,
                 label: 'LeaderBoard',
                 description: 'Encourage healthy competition.',
-                image: 'https://picsum.photos/seed/prop-leaderboard/1200/620',
+                image: '/assets/images/prop-leaderboard.png',
                 alt: 'Leaderboard view for top traders',
               },
               {
                 id: 'certification' as const,
                 label: 'Certification',
                 description: 'Recognise achievement and promote your brand.',
-                image: 'https://picsum.photos/seed/prop-certification/1200/620',
+                image: '/assets/images/prop-certification.png',
                 alt: 'Certification settings and payout certificate',
               },
             ];
@@ -425,16 +425,16 @@ export default function PropTrading() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="bg-finovo-gray p-8 rounded-[3rem] border border-slate-100 shadow-xl">
-                <img 
-                  src="https://picsum.photos/seed/proptrading/800/600" 
-                  alt="Prop Trading Dashboard" 
+              <div className="bg-finovo-gray p-8 rounded-3xl border border-slate-100 shadow-xl">
+                <img
+                  src="/assets/images/proptrading-dashboard.png"
+                  alt="Prop Trading Dashboard"
                   className="rounded-2xl w-full shadow-lg"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               {/* Floating Stat */}
-              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl border border-slate-50 max-w-[200px]">
+              <div className="absolute -top-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-50 max-w-[200px]">
                 <div className="text-3xl font-black text-finovo-green mb-1">10k+</div>
                 <div className="text-xs font-bold text-finovo-muted uppercase tracking-widest leading-tight">Traders Evaluated Daily</div>
               </div>
