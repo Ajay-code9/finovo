@@ -3,65 +3,29 @@ import { GenericPage } from './GenericPage';
 import Home from './Home';
 import CFDBrokerage from './Solutions/CFDBrokerage';
 import PropTrading from './Solutions/PropTrading';
+import BackOffice from './Solutions/BackOffice';
 import WhiteLabel from './Platform/WhiteLabel';
 import Blog from './Blog';
 import ContactUs from './ContactUs';
+import MT4MT5Solutions from './Solutions/MT4MT5Solutions';
+import MT4MT5Setup from './Services/MT4MT5Setup';
+import PredictionMarkets from './Solutions/PredictionMarkets';
+import PropCRM from './Services/PropCRM';
+import ForexCRM from './Services/ForexCRM';
 
 export { Home, CFDBrokerage, PropTrading, WhiteLabel, Blog, ContactUs };
 
-export const BackOfficePage = () => (
-  <GenericPage 
-    title="Back Office Solutions" 
-    description="CRM, Broker Portal, Affiliate & IB's, Risk Management, and more. A complete suite for your brokerage operations."
-    features={["Advanced CRM", "Broker Portal", "Affiliate Management", "Risk Controls", "BI Reporting"]}
-    imageSeed="backoffice"
-  />
-);
+export const BackOfficePage = () => <BackOffice />;
 
-export const MT4MT5Page = () => (
-  <GenericPage 
-    title="MT4 & MT5 Solutions" 
-    description="A fully managed services ecosystem for MT4/5. Engineered for rapid deployment and confident scaling."
-    features={["Managed Hosting", "License Support", "Technical Operations", "24/7 Monitoring", "Seamless Scaling"]}
-    imageSeed="mt4mt5"
-  />
-);
+export const MT4MT5Page = () => <MT4MT5Solutions />;
 
-export const PredictionMarketsPage = () => (
-  <GenericPage 
-    title="Prediction Markets" 
-    description="Launch your own prediction markets platform, fully branded, fully managed. Engage your users with unique trading opportunities."
-    features={["Fully Branded", "Managed Operations", "Unique Markets", "User Engagement", "Scalable Tech"]}
-    imageSeed="prediction"
-  />
-);
+export const PredictionMarketsPage = () => <PredictionMarkets />;
 
-export const MT4MT5SetupPage = () => (
-  <GenericPage 
-    title="MT4 MT5 Setup" 
-    description="Start your brokerage journey with MT4 or MT5 infrastructure. We handle the technical setup so you can focus on your business."
-    features={["Infrastructure Setup", "Platform Config", "Technical Support", "Rapid Deployment", "Expert Guidance"]}
-    imageSeed="setup"
-  />
-);
+export const MT4MT5SetupPage = () => <MT4MT5Setup />;
 
-export const ForexCRMPage = () => (
-  <GenericPage 
-    title="Forex CRM" 
-    description="Deploy a full white-label CRM suite for your brokerage. Manage your clients, IB's, and affiliates with ease."
-    features={["Client Management", "IB System", "Affiliate Tracking", "Payment Integration", "Custom Workflows"]}
-    imageSeed="forexcrm"
-  />
-);
+export const ForexCRMPage = () => <ForexCRM />;
 
-export const PropCRMPage = () => (
-  <GenericPage 
-    title="PROP CRM" 
-    description="Maximize your prop firm's efficiency with our dedicated technology. Automated evaluations and risk management."
-    features={["Prop Firm Specific", "Automated Evaluations", "Risk Controls", "Trader Portal", "Performance Analytics"]}
-    imageSeed="propcrm"
-  />
-);
+export const PropCRMPage = () => <PropCRM />;
 
 export const PrimeLiquidityPage = () => (
   <GenericPage 

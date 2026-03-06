@@ -130,7 +130,7 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl bg-white border border-slate-100 shadow-2xl rounded-[2rem] mt-4 overflow-hidden"
+            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl bg-white border border-slate-100 shadow-2xl rounded-4xl mt-4 overflow-hidden"
             onMouseEnter={cancelSubmenuClose}
             onMouseLeave={scheduleSubmenuClose}
           >
@@ -159,32 +159,29 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
               )}
 
               {activeSubmenu === 'platform' && (
-                <div className="grid grid-cols-12 gap-10 items-center">
+                <div className="grid grid-cols-12 gap-8 items-start">
                   <div className="col-span-12 mb-2">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                       {menuItems.find(m => m.id === 'platform')?.submenu?.title}
                     </span>
                   </div>
-                  <div className="col-span-5">
-                    <h4 className="text-xl font-medium text-finovo-dark mb-3">
+                  <Link
+                    to={menuItems.find(m => m.id === 'platform')?.submenu?.content?.path || '#'}
+                    onClick={() => setActiveSubmenu(null)}
+                    className="col-span-5 group cursor-pointer"
+                  >
+                    <h4 className="text-xl font-medium text-finovo-dark mb-3 group-hover:text-finovo-green transition-colors">
                       {menuItems.find(m => m.id === 'platform')?.submenu?.content?.title}
                     </h4>
-                    <p className="text-sm text-finovo-muted leading-relaxed mb-6">
+                    <p className="text-sm text-finovo-muted leading-relaxed">
                       {menuItems.find(m => m.id === 'platform')?.submenu?.content?.desc}
                     </p>
-                    <Link 
-                      to={menuItems.find(m => m.id === 'platform')?.submenu?.content?.path || '#'} 
-                      className="text-finovo-green text-sm font-bold flex items-center gap-2 group"
-                      onClick={() => setActiveSubmenu(null)}
-                    >
-                      Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                  <div className="col-span-7">
+                  </Link>
+                  <div className="col-span-7 flex justify-end">
                     <img 
                       src={menuItems.find(m => m.id === 'platform')?.submenu?.content?.image} 
                       alt="Platform Preview" 
-                      className="w-full rounded-2xl shadow-lg border border-slate-100"
+                      className="w-full max-w-md rounded-2xl shadow-lg border border-slate-100"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -279,7 +276,7 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 bg-white z-[60] lg:hidden overflow-y-auto scrollbar-hide"
+            className="fixed inset-0 bg-white z-60 lg:hidden overflow-y-auto scrollbar-hide"
             style={{ top: `${navHeight}px` }}
           >
             <div className="px-6 py-2 flex flex-col gap-2">
