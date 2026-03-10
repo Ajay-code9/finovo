@@ -85,23 +85,23 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="lg:col-span-6 flex justify-center"
+          className="lg:col-span-6 flex justify-center mt-6 lg:mt-0"
         >
-          <div className="relative w-full max-w-5xl">
-            <div className="absolute -top-8 -right-6 w-32 h-32 rounded-3xl bg-finovo-green/10 blur-3xl" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-emerald-500/10 blur-3xl" />
+          <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-4xl">
+            <div className="hidden lg:block absolute -top-8 -right-6 w-32 h-32 rounded-3xl bg-finovo-green/10 blur-3xl" />
+            <div className="hidden lg:block absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-emerald-500/10 blur-3xl" />
 
-            <div className="relative flex gap-6 justify-end items-end">
-              <div className="w-96 sm:w-[26rem] lg:w-[30rem] flex items-center justify-center overflow-visible translate-y-4">
+            <div className="relative flex justify-center lg:justify-end items-end">
+              <div className="w-full max-w-xs sm:max-w-sm lg:w-[30rem] flex items-center justify-center translate-y-1 lg:translate-y-4">
                 <img
                   src={primaryImageSrc}
                   alt={primaryImageAlt}
-                  className="max-w-full max-h-[720px] sm:max-h-[620px] lg:max-h-[680px] w-auto h-auto object-contain object-bottom"
+                  className="w-full h-auto max-h-[420px] sm:max-h-[560px] lg:max-h-[620px] object-contain object-bottom"
                   referrerPolicy="no-referrer"
                 />
               </div>
               {secondaryImageSrc && (
-                <div className="w-72 sm:w-64 lg:w-80 flex items-center justify-center overflow-visible">
+                <div className="hidden lg:flex w-72 sm:w-64 lg:w-80 items-center justify-center overflow-visible">
                   <img
                     src={secondaryImageSrc}
                     alt={secondaryImageAlt}
