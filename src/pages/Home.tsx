@@ -619,7 +619,7 @@ const PowerSuiteSection = () => {
               <div className="flex justify-between items-start mb-6">
                 <span className="text-[10px] font-black text-finovo-muted uppercase tracking-[0.2em] bg-finovo-gray px-3 py-1 rounded-full">{f.tag}</span>
               </div>
-              <div className="w-full mb-8 min-h-[200px] h-72 rounded-xl overflow-hidden bg-slate-50/50 flex items-center justify-center p-2">
+              <div className="w-full mb-8 min-h-[200px] h-72 rounded-xl overflow-hidden flex items-center justify-center p-2">
                 <img
                   src={f.image}
                   alt=""

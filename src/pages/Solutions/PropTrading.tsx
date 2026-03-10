@@ -27,7 +27,7 @@ export default function PropTrading() {
       heading: 'Custom-designed funnels that match your prop brand.',
       blurb:
         'Fully branded onboarding flows with challenge selection, KYC steps, and payment in one smooth experience.',
-      image: '/assets/images/prop-registration.png',
+      image: '/assets/images/prop2.png',
       alt: 'Custom registration page for prop traders',
     },
     {
@@ -36,7 +36,7 @@ export default function PropTrading() {
       heading: 'Full control over plan creation and challenge management.',
       blurb:
         'Configure plans, rules, and notifications from a single hub so your operations team can move quickly and safely.',
-      image: '/assets/images/prop-portal.png',
+      image: '/assets/images/prop3.png',
       alt: 'Prop trading broker portal',
     },
     {
@@ -45,7 +45,7 @@ export default function PropTrading() {
       heading: 'Dashboards that keep traders focused and engaged.',
       blurb:
         'Clarity on equity, targets, and rules in real time, designed to keep your traders confident and compliant.',
-      image: '/assets/images/prop-dashboard.png',
+      image: '/assets/images/prop4.png',
       alt: 'Real-time trader dashboard',
     },
     {
@@ -54,7 +54,7 @@ export default function PropTrading() {
       heading: 'Automation that scales evaluations, payouts, and messaging.',
       blurb:
         'Drive growth with rule-based triggers for evaluations, promotions, and communications – without extra headcount.',
-      image: '/assets/images/prop-automation.png',
+      image: '/assets/images/prop5.png',
       alt: 'Automation tools for prop firm',
     },
   ];
@@ -117,26 +117,17 @@ export default function PropTrading() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
-              <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
-              <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
-              <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden translate-y-4">
-                  <img
-                    src="/assets/images/prop-phone-1.png"
-                    alt="Prop trading mobile interface 1"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="w-36 sm:w-40 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden">
-                  <img
-                    src="/assets/images/prop-phone-2.png"
-                    alt="Prop trading mobile interface 2"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+            <div className="relative w-full max-w-md flex items-center justify-center min-h-[320px]">
+              <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+              <div className="relative flex items-center justify-center">
+                <img
+                  src="/assets/images/propmob1.png"
+                  alt="Prop trading mobile interface"
+                  className="max-w-full max-h-[420px] w-auto h-auto object-contain"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>
@@ -184,11 +175,11 @@ export default function PropTrading() {
                 {activeSolution.blurb}
               </p>
             </div>
-            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl max-h-[420px]">
+            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl min-h-[260px] md:min-h-[320px] flex items-center justify-center">
               <img
                 src={activeSolution.image}
                 alt={activeSolution.alt}
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-[420px] w-auto h-auto object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -225,9 +216,19 @@ export default function PropTrading() {
                 <p className="text-xs md:text-sm text-finovo-muted mb-6">
                   Your branded environment, powered by institutional‑grade technology that keeps traders engaged.
                 </p>
-                <button className="inline-flex items-center gap-1 text-sm font-semibold text-finovo-green hover:underline">
-                  Explore now <span aria-hidden>→</span>
-                </button>
+                <div className="mb-6">
+                  <button className="inline-flex items-center gap-1 text-sm font-semibold text-finovo-green hover:underline">
+                    Explore now <span aria-hidden>→</span>
+                  </button>
+                </div>
+                <div className="mt-2 rounded-2xl overflow-hidden border border-slate-200 bg-white">
+                  <img
+                    src="/assets/images/homepage1.png"
+                    alt="Trading platform chart interface"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
 
               <div className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow p-6 md:p-8">
@@ -300,10 +301,10 @@ export default function PropTrading() {
           'Seamless trading across mobile, desktop, and web',
           'Advanced order types, risk tools, and social trading',
         ]}
-        primaryImageSrc="/assets/images/prop-platform-1.png"
+        primaryImageSrc="/assets/images/propmob2.png"
         primaryImageAlt="Prop trading mobile app"
-        secondaryImageSrc="/assets/images/prop-platform-2.png"
-        secondaryImageAlt="Prop trading platform dashboard"
+        secondaryImageSrc=""
+        secondaryImageAlt=""
       />
 
       <PropLiquiditySection />
@@ -336,28 +337,28 @@ export default function PropTrading() {
                 id: 'keeper' as const,
                 label: 'Challenge Keeper',
                 description: 'Extend challenges based on performance.',
-                image: '/assets/images/prop-challenge-keeper.png',
+                image: '/assets/images/prop6.png',
                 alt: 'Challenge keeper prompt for traders',
               },
               {
                 id: 'retry' as const,
                 label: 'Challenge Retry',
                 description: 'Offer second chances and reduce drop-offs.',
-                image: '/assets/images/prop-challenge-retry.png',
+                image: '/assets/images/prop7.png',
                 alt: 'Challenge retry dialog for traders',
               },
               {
                 id: 'leaderboard' as const,
                 label: 'LeaderBoard',
                 description: 'Encourage healthy competition.',
-                image: '/assets/images/prop-leaderboard.png',
+                image: '/assets/images/leaderboard.png',
                 alt: 'Leaderboard view for top traders',
               },
               {
                 id: 'certification' as const,
                 label: 'Certification',
                 description: 'Recognise achievement and promote your brand.',
-                image: '/assets/images/prop-certification.png',
+                image: '/assets/images/certificatesettings.png',
                 alt: 'Certification settings and payout certificate',
               },
             ];
@@ -405,12 +406,12 @@ export default function PropTrading() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.4 }}
                   transition={{ duration: 0.4 }}
-                  className="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-xl bg-finovo-gray/60 backdrop-blur-sm"
+                  className="flex items-center justify-center h-72 md:h-[380px]"
                 >
                   <img
                     src={activeTool.image}
                     alt={activeTool.alt}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
@@ -427,7 +428,7 @@ export default function PropTrading() {
             <div className="order-2 lg:order-1 relative">
               <div className="bg-finovo-gray p-8 rounded-3xl border border-slate-100 shadow-xl">
                 <img
-                  src="/assets/images/proptrading-dashboard.png"
+                  src="/assets/images/homepage1.png"
                   alt="Prop Trading Dashboard"
                   className="rounded-2xl w-full shadow-lg"
                   loading="lazy"

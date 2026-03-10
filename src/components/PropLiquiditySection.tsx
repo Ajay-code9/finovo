@@ -33,18 +33,13 @@ export const PropLiquiditySection: React.FC<PropLiquiditySectionProps> = ({
     <section className="py-16 md:py-24 bg-finovo-gray">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="order-2 lg:order-1">
-          <div className="w-full rounded-3xl border border-slate-200 bg-white shadow-sm p-6 md:p-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {defaultInstruments.map((label) => (
-              <div
-                key={label}
-                className="flex flex-col items-start gap-2 rounded-2xl bg-finovo-gray/50 border border-slate-100 px-4 py-3"
-              >
-                <div className="h-8 w-8 rounded-full border border-finovo-green/40 flex items-center justify-center text-[10px] font-semibold text-finovo-green">
-                  FX
-                </div>
-                <p className="text-xs font-semibold text-finovo-dark leading-snug">{label}</p>
-              </div>
-            ))}
+          <div className="w-full max-w-lg rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <img
+              src="/assets/images/tradingicons.png"
+              alt="Grid of supported trading instruments"
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 

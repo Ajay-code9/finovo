@@ -156,11 +156,11 @@ export default function PrimeLiquidity() {
             transition={{ duration: 0.5, delay: 0.05 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-finovo-gray p-5">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden flex items-center justify-center min-h-[260px]">
               <img
-                src="/assets/images/liquidity-network.png"
+                src="/assets/images/homepage2.png"
                 alt="Network of instruments showing multi-asset liquidity"
-                className="w-full h-full object-cover rounded-xl"
+                className="max-w-full max-h-[340px] w-auto h-auto object-contain"
                 loading="lazy"
               />
             </div>

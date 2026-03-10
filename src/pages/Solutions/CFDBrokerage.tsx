@@ -300,7 +300,7 @@ export default function CFDBrokerage() {
 
                       {/* Mobile: show image directly under active option */}
                       {isActive && (
-                        <div className="mt-3 w-full rounded-2xl bg-slate-50 flex items-center justify-center h-64 md:h-72 lg:hidden">
+                        <div className="mt-3 w-full rounded-2xl flex items-center justify-center h-64 md:h-72 lg:hidden">
                           <img
                             src={f.image}
                             alt={f.alt}
@@ -364,7 +364,7 @@ export default function CFDBrokerage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg">
                 <img
-                  src="/assets/images/cfd-brokerage-dashboard.png"
+                  src="/assets/images/cfd7.png"
                   alt="Brokerage dashboard"
                   className="w-full h-auto object-cover"
                   loading="lazy"
@@ -392,9 +392,9 @@ export default function CFDBrokerage() {
           'One-click trading',
           'Price alerts & social trading',
         ]}
-        primaryImageSrc="/assets/images/cfd-trade-mobile.png"
+        primaryImageSrc="/assets/images/cfdmob1.png"
         primaryImageAlt="Mobile trading app"
-        secondaryImageSrc="/assets/images/cfd-trade-main.png"
+        secondaryImageSrc="/assets/images/cfdmob2.png"
         secondaryImageAlt="Trading platform dashboard"
       />
 
@@ -447,27 +447,13 @@ export default function CFDBrokerage() {
             </div>
 
             <div className="flex justify-center lg:justify-end">
-              <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-finovo-gray shadow-lg p-8 grid grid-cols-2 gap-4">
-                {[
-                  'Cryptocurrencies',
-                  'CFDs on FX',
-                  'Equities',
-                  'Synthetic instruments',
-                  'Indices',
-                  'Futures',
-                  'Commodities',
-                  'ETFs',
-                ].map((label) => (
-                  <div
-                    key={label}
-                    className="flex flex-col items-start gap-2 rounded-2xl bg-white shadow-sm border border-slate-100 px-4 py-3"
-                  >
-                    <div className="h-7 w-7 rounded-full border border-finovo-green/40 flex items-center justify-center text-[10px] font-semibold text-finovo-green">
-                      FX
-                    </div>
-                    <p className="text-xs font-semibold text-finovo-dark leading-snug">{label}</p>
-                  </div>
-                ))}
+              <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white shadow-lg overflow-hidden">
+                <img
+                  src="/assets/images/tradingicons.png"
+                  alt="Grid of trading asset classes and instruments"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>
@@ -504,11 +490,11 @@ export default function CFDBrokerage() {
               </div>
             </div>
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="w-full max-w-md rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-lg">
+              <div className="w-full max-w-md rounded-2xl overflow-hidden flex items-center justify-center min-h-[280px]">
                 <img
-                  src="/assets/images/cfd-liquidity.png"
+                  src="/assets/images/homepage2.png"
                   alt="Liquidity and market depth dashboard"
-                  className="w-full h-auto object-cover"
+                  className="max-w-full max-h-[360px] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>
@@ -544,11 +530,11 @@ export default function CFDBrokerage() {
               </Link>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+              <div className="w-full max-w-lg flex items-center justify-center min-h-[280px]">
                 <img
-                  src="/assets/images/cfd-charting.png"
+                  src="/assets/images/cfdcharting.png"
                   alt="Advanced charting interface"
-                  className="w-full h-auto object-cover"
+                  className="max-w-full max-h-[400px] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>
@@ -556,12 +542,12 @@ export default function CFDBrokerage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+            <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+              <div className="w-full max-w-lg flex items-center justify-center min-h-[260px]">
                 <img
-                  src="/assets/images/cfd-affiliates.png"
+                  src="/assets/images/cfdIB.png"
                   alt="Affiliate & IB dashboard"
-                  className="w-full h-auto object-cover"
+                  className="max-w-full max-h-[380px] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>
@@ -643,11 +629,11 @@ export default function CFDBrokerage() {
               </p>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-xl">
+              <div className="w-full max-w-lg flex items-center justify-center min-h-[260px]">
                 <img
-                  src="/assets/images/cfd-social.png"
+                  src="/assets/images/cfdpamm.png"
                   alt="Social trading interface"
-                  className="w-full h-auto object-cover"
+                  className="max-w-full max-h-[380px] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>
@@ -661,12 +647,12 @@ export default function CFDBrokerage() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <div className="order-2 lg:order-1">
-              <div className="w-full max-w-lg rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+            <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+              <div className="w-full max-w-lg rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm flex items-center justify-center min-h-[260px] p-2">
                 <img
-                  src="/assets/images/cfd-sirix-broker.png"
+                  src="/assets/images/cfdbrokerage.png"
                   alt="Broker performance dashboard"
-                  className="w-full h-auto object-cover"
+                  className="max-w-full max-h-[380px] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>

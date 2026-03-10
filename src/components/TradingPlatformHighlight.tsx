@@ -85,29 +85,31 @@ export const TradingPlatformHighlight: React.FC<TradingPlatformHighlightProps> =
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="lg:col-span-6 flex justify-end"
+          className="lg:col-span-6 flex justify-center"
         >
-          <div className="relative w-full max-w-md">
+          <div className="relative w-full max-w-5xl">
             <div className="absolute -top-8 -right-6 w-32 h-32 rounded-3xl bg-finovo-green/10 blur-3xl" />
             <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-emerald-500/10 blur-3xl" />
 
-            <div className="relative flex gap-4 justify-end">
-              <div className="w-40 sm:w-48 rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden translate-y-4">
+            <div className="relative flex gap-6 justify-end items-end">
+              <div className="w-96 sm:w-[26rem] lg:w-[30rem] flex items-center justify-center overflow-visible translate-y-4">
                 <img
                   src={primaryImageSrc}
                   alt={primaryImageAlt}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-[720px] sm:max-h-[620px] lg:max-h-[680px] w-auto h-auto object-contain object-bottom"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="w-44 sm:w-56 rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden">
-                <img
-                  src={secondaryImageSrc}
-                  alt={secondaryImageAlt}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              {secondaryImageSrc && (
+                <div className="w-72 sm:w-64 lg:w-80 flex items-center justify-center overflow-visible">
+                  <img
+                    src={secondaryImageSrc}
+                    alt={secondaryImageAlt}
+                    className="max-w-full max-h-[580px] sm:max-h-[480px] lg:max-h-[540px] w-auto h-auto object-contain object-bottom"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
