@@ -71,15 +71,12 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-          <div className="flex items-center gap-1 group cursor-pointer">
-            <div className="flex gap-0.5">
-              <div className="w-2.5 h-7 bg-finovo-green -skew-x-12 rounded-sm" />
-              <div className="w-2.5 h-7 bg-finovo-green -skew-x-12 rounded-sm opacity-80" />
-            </div>
-            <div className="flex flex-col -gap-1 ml-1">
-              <span className="text-2xl font-display font-black text-finovo-dark leading-none">finovo</span>
-            </div>
-          </div>
+          <img
+            src="/assets/images/FinovoLogo.png"
+            alt="Finovo"
+            className="h-8 w-auto md:h-9 object-contain"
+            loading="lazy"
+          />
         </Link>
 
         {/* Desktop Menu */}

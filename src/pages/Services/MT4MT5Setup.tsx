@@ -3,9 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight, Server, RadioTower, Activity, Settings2, Network, Users } from 'lucide-react';
 import { DotsBackground } from '../../components/DotsBackground';
 
-// These image paths assume you place your service reference images in:
-// public/assets/mt4mt5-setup/
-const heroImage = '/assets/mt4mt5-setup/hero.png';
+const heroImage = '/assets/images/homepage4.png';
 
 export default function MT4MT5Setup() {
   const includedCards = [

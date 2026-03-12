@@ -95,26 +95,16 @@ export default function ForexCRM() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-xl">
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
-              <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden translate-y-4">
-                  <img
-                    src="/assets/images/forex-crm-left.png"
-                    alt="Forex CRM mobile dashboard"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="w-36 sm:w-40 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden">
-                  <img
-                    src="/assets/images/forex-crm-right.png"
-                    alt="Forex CRM trading overview"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
+              <div className="relative w-full">
+                <img
+                  src="/assets/images/cfdbrokerage.png"
+                  alt="Forex CRM dashboard overview"
+                  className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>
@@ -148,12 +138,12 @@ export default function ForexCRM() {
             </button>
           </div>
 
-          <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md rounded-3xl border border-slate-100 bg-finovo-gray shadow-xl p-4">
+            <div className="lg:col-span-6 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md">
               <img
-                src="/assets/images/forex-suite.png"
+                src="/assets/images/back-officedashboard.png"
                 alt="Diagram of trading platform, CRM, liquidity and broker portal connected"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
                 loading="lazy"
               />
             </div>
@@ -173,9 +163,9 @@ export default function ForexCRM() {
           'Multi‑asset liquidity connectivity',
           'Real‑time execution metrics',
         ]}
-        primaryImageSrc="/assets/images/forex-tv-left.png"
+        primaryImageSrc="/assets/images/cfdcharting.png"
         primaryImageAlt="Trading platform order list"
-        secondaryImageSrc="/assets/images/forex-tv-right.png"
+        secondaryImageSrc="/assets/images/cfdIB.png"
         secondaryImageAlt="TradingView style chart"
       />
 
@@ -189,12 +179,12 @@ export default function ForexCRM() {
       {/* Liquidity / instruments style feature section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6">
-            <div className="rounded-3xl border border-slate-100 bg-finovo-gray shadow-xl p-4">
+            <div className="lg:col-span-6">
+            <div className="relative w-full max-w-md">
               <img
-                src="/assets/images/forex-liquidity.png"
+                src="/assets/images/tradingicons.png"
                 alt="Grid of asset classes supported by Finovo liquidity"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
                 loading="lazy"
               />
             </div>

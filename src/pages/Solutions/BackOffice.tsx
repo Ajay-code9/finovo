@@ -51,7 +51,7 @@ export default function BackOffice() {
       label: 'Real-Time Oversight',
       blurb:
         'Live visibility into trades, exposure, and performance so your dealing and risk teams can act in seconds.',
-      image: 'https://picsum.photos/seed/backoffice-risk-oversight/1400/600',
+      image: '/assets/images/back-officesirix1.png',
       alt: 'Real-time risk exposure dashboard',
     },
     {
@@ -59,7 +59,7 @@ export default function BackOffice() {
       label: 'Detailed Reporting',
       blurb:
         'On-demand risk and P&L reports tailored to your brokerage model, ready for management and regulators.',
-      image: 'https://picsum.photos/seed/backoffice-risk-reporting/1400/600',
+      image: '/assets/images/back-officesirix2.png',
       alt: 'Risk reporting interface',
     },
     {
@@ -67,7 +67,7 @@ export default function BackOffice() {
       label: 'Advanced Risk Management',
       blurb:
         'Set limits, flag anomalies, and control risk parameters across brands, groups, and instruments.',
-      image: 'https://picsum.photos/seed/backoffice-risk-advanced/1400/600',
+      image: '/assets/images/back-officesirix3.png',
       alt: 'Advanced risk controls',
     },
     {
@@ -75,7 +75,7 @@ export default function BackOffice() {
       label: 'Virtual Dealing Desk',
       blurb:
         'Control execution and trade flow in a fully virtual dealing environment with full audit history.',
-      image: 'https://picsum.photos/seed/backoffice-risk-dealing/1400/600',
+      image: '/assets/images/back-officesirix4.png',
       alt: 'Virtual dealing desk configuration',
     },
   ];
@@ -137,24 +137,16 @@ export default function BackOffice() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
-              <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
-              <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
-              <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden translate-y-4">
+            <div className="relative w-full max-w-sm sm:max-w-md">
+              <div className="hidden sm:block absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
+              <div className="hidden sm:block absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
+              <div className="relative flex justify-start lg:justify-center">
+                <div className="w-44 sm:w-56 md:w-64 lg:w-72 xl:w-80 rounded-3xl overflow-visible">
                   <img
-                    src="https://picsum.photos/seed/backoffice-phone-1/400/800"
-                    alt="Back office mobile view 1"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="w-36 sm:w-40 rounded-2xl bg-black/80 border border-white/10 shadow-xl overflow-hidden">
-                  <img
-                    src="https://picsum.photos/seed/backoffice-phone-2/420/840"
-                    alt="Back office mobile view 2"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    src="/assets/images/back-officemob1.png"
+                    alt="Finovo back office mobile workspace"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -238,45 +230,43 @@ export default function BackOffice() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="rounded-3xl border border-slate-200 bg-finovo-gray shadow-sm p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold text-finovo-dark mb-2">
-                  Native trading platform integration
-                </h3>
-                <p className="text-finovo-muted text-sm md:text-base">
-                  Seamlessly connect Finovo CRM with your trading platforms and PSPs.
-                  Save time, reduce errors, and streamline your operations without
-                  custom builds.
-                </p>
-              </div>
-              <div className="w-full md:w-1/2 rounded-2xl overflow-hidden border border-slate-200 bg-white">
+            <div className="rounded-3xl border border-slate-200 bg-white shadow-sm px-6 py-7 md:px-8 md:py-9 flex flex-col gap-6">
+              <div className="w-full rounded-2xl overflow-hidden border border-slate-200 bg-white">
                 <img
-                  src="https://picsum.photos/seed/backoffice-chart-1/800/450"
-                  alt="Back office trading integration"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/back-officedashboard.png"
+                  alt="Native trading platform integration dashboard"
+                  className="w-full h-auto md:h-[260px] lg:h-[300px] object-contain"
                   referrerPolicy="no-referrer"
                 />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-semibold text-finovo-dark mb-2">
+                  Native Trading Platform Integration
+                </h3>
+                <p className="text-finovo-muted text-sm md:text-base">
+                  Seamlessly connect your CRM with your trading platform, no third-party
+                  hassles. Save time, reduce errors, and streamline your operations.
+                </p>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-finovo-gray shadow-sm p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold text-finovo-dark mb-2">
-                  Smart dashboards &amp; reports
-                </h3>
-                <p className="text-finovo-muted text-sm md:text-base">
-                  Leads, traders, conversions, and P&amp;L – all in one streamlined
-                  view. Make faster decisions with real-time data and tailored
-                  reports for every desk.
-                </p>
-              </div>
-              <div className="w-full md:w-1/2 rounded-2xl overflow-hidden border border-slate-200 bg-white">
+            <div className="rounded-3xl border border-slate-200 bg-white shadow-sm px-6 py-7 md:px-8 md:py-9 flex flex-col gap-6">
+              <div className="w-full rounded-2xl overflow-hidden border border-slate-200 bg-white">
                 <img
-                  src="https://picsum.photos/seed/backoffice-chart-2/800/450"
-                  alt="Back office dashboards"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/back-officedashboard.png"
+                  alt="Smart dedicated dashboards and reports"
+                  className="w-full h-auto md:h-[260px] lg:h-[300px] object-contain"
                   referrerPolicy="no-referrer"
                 />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-semibold text-finovo-dark mb-2">
+                  Smart Dedicated Dashboards &amp; Reports
+                </h3>
+                <p className="text-finovo-muted text-sm md:text-base">
+                  All your key metrics; leads, trades, conversions in one streamlined view.
+                  Make faster decisions with real-time data and tailored reports for every desk.
+                </p>
               </div>
             </div>
           </div>
@@ -287,12 +277,12 @@ export default function BackOffice() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
-            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-xl">
+            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
               <img
-                src="https://picsum.photos/seed/backoffice-risk-main/1000/520"
-                alt="Risk management dashboard"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                src="/assets/images/back-officedashboard.png"
+                alt="Finovo risk management dashboard"
+                className="w-full h-auto object-contain"
+                loading="lazy"
               />
             </div>
           </div>
@@ -356,11 +346,11 @@ export default function BackOffice() {
                 {activeRisk.blurb}
               </p>
             </div>
-            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl max-h-[380px] md:max-h-[420px]">
+            <div className="rounded-3xl border border-slate-200 bg-white shadow-xl min-h-[260px] md:min-h-[320px] flex items-center justify-center overflow-hidden">
               <img
                 src={activeRisk.image}
                 alt={activeRisk.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-auto max-h-[420px] md:max-h-[480px] object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -443,11 +433,11 @@ export default function BackOffice() {
               </ul>
             </div>
             <div className="lg:col-span-7 flex justify-center lg:justify-end">
-              <div className="w-full max-w-xl rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-xl">
+              <div className="w-full max-w-xl rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl flex items-center justify-center">
                 <img
-                  src="https://picsum.photos/seed/backoffice-affiliates/1200/520"
-                  alt="Affiliates and IBs dashboard"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/back-officereferafriend.png"
+                  alt="Affiliates and IBs refer a friend dashboard"
+                  className="w-full h-auto max-h-[360px] md:max-h-[420px] object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -456,11 +446,11 @@ export default function BackOffice() {
 
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 order-2 lg:order-1 flex justify-center lg:justify-start">
-              <div className="w-full max-w-xl rounded-3xl overflow-hidden border border-slate-200 bg-finovo-gray shadow-xl">
+              <div className="w-full max-w-xl rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl flex items-center justify-center">
                 <img
-                  src="https://picsum.photos/seed/backoffice-portal/1200/520"
-                  alt="Broker portal plans screen"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/back-officepropplans.png"
+                  alt="Broker portal prop plans dashboard"
+                  className="w-full h-auto max-h-[360px] md:max-h-[420px] object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>

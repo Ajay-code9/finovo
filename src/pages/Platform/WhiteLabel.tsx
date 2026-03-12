@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Globe, LayoutDashboard, Zap } from 'lucide-react';
+import { ArrowRight, Globe, LayoutDashboard, Zap, MousePointerClick, Bell, Users, Activity } from 'lucide-react';
 import { DotsBackground } from '../../components/DotsBackground';
 import PricingSection from '../../components/PricingSection';
 
@@ -28,28 +28,28 @@ const mobileTabs = [
     id: 'onboarding',
     label: 'Secure onboarding',
     sub: 'Register with magic links or SSO.',
-    image: '/assets/images/wl-onboarding.png',
+    image: '/assets/images/white-labelmob1.png',
     alt: 'Mobile onboarding for trading app',
   },
   {
     id: 'funding',
     label: 'Quick funding',
     sub: 'Fast deposits and verified withdrawals.',
-    image: '/assets/images/wl-funding.png',
+    image: '/assets/images/white-labelmob2.png',
     alt: 'Mobile funding experience',
   },
   {
     id: 'smart',
     label: 'Smart trading',
     sub: 'Access markets with powerful tools.',
-    image: '/assets/images/wl-smart.png',
+    image: '/assets/images/white-labelmob3.png',
     alt: 'Mobile trading interface',
   },
   {
     id: 'everywhere',
     label: 'Everywhere',
     sub: 'Market news & education in‑app.',
-    image: '/assets/images/wl-everywhere.png',
+    image: '/assets/images/white-labelmob4.png',
     alt: 'Insights and education on mobile',
   },
 ] as const;
@@ -69,18 +69,22 @@ export default function WhiteLabel() {
     {
       title: 'One‑click trading',
       desc: 'Instant order entry from charts and widgets, tuned for fast‑moving markets.',
+      icon: MousePointerClick,
     },
     {
       title: 'Price alerts',
       desc: 'Let traders set alerts once and receive notifications across devices.',
+      icon: Bell,
     },
     {
       title: 'Social & copy trading',
       desc: 'Follow strategies, mirror trades, and showcase top performers.',
+      icon: Users,
     },
     {
       title: 'TradingView‑grade charts',
       desc: 'Deep analysis tools and drawing objects embedded into your platform.',
+      icon: Activity,
     },
   ];
 
@@ -153,21 +157,23 @@ export default function WhiteLabel() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-xl">
+            <div className="relative w-full max-w-2xl">
               <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-12 -right-8 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
-              <div className="relative rounded-2xl border border-slate-100 bg-finovo-dark shadow-xl p-6">
+
+              <div className="relative w-full">
                 <img
-                  src={wlHero}
+                  src="/assets/images/tradingdashboardlapnmob.png"
                   alt="Finovo white-label trading platform with stacked mobile layouts"
-                  className="w-full h-full object-cover rounded-2xl"
-                  referrerPolicy="no-referrer"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
                 />
-                <div className="mt-4 flex flex-wrap gap-3 justify-center">
+
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex flex-wrap gap-3 justify-center">
                   {['Best trading platform', 'Best broker technology', 'Client choice award'].map((label) => (
                     <div
                       key={label}
-                      className="px-3 py-1.5 rounded-2xl bg-white text-[10px] font-semibold text-finovo-dark shadow-sm border border-slate-100"
+                      className="px-3.5 py-1.5 rounded-2xl bg-white text-[10px] font-semibold text-finovo-dark shadow-md border border-slate-100"
                     >
                       {label}
                     </div>
@@ -201,16 +207,19 @@ export default function WhiteLabel() {
           </div>
 
           <div className="relative">
-            <div className="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-thin scrollbar-thumb-finovo-green/50">
+            <div className="grid md:grid-cols-4 gap-6">
               {featureCards.map((card) => (
                 <motion.div
                   key={card.title}
                   whileHover={{ y: -4 }}
-                  className="min-w-[240px] sm:min-w-[260px] md:min-w-[280px] bg-finovo-gray rounded-3xl border border-slate-100 shadow-sm px-5 py-6 flex flex-col gap-2"
+                  className="bg-white rounded-3xl border border-slate-100 shadow-md px-6 py-7 flex flex-col gap-3 transition-all"
                 >
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-finovo-green/8 text-finovo-green mb-1">
+                    <card.icon className="w-5 h-5" />
+                  </div>
                   <h3 className="text-sm md:text-base font-semibold text-finovo-dark">{card.title}</h3>
                   <p className="text-xs md:text-sm text-finovo-muted">{card.desc}</p>
-                  <div className="mt-3 h-px w-full bg-linear-to-r from-transparent via-finovo-green/50 to-transparent" />
+                  <div className="mt-3 h-[3px] rounded-full bg-linear-to-r from-transparent via-finovo-green/60 to-transparent" />
                 </motion.div>
               ))}
             </div>
@@ -262,23 +271,13 @@ export default function WhiteLabel() {
             <div className="relative w-full max-w-md">
               <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-finovo-green/15 blur-3xl" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-emerald-500/20 blur-3xl" />
-              <div className="relative flex gap-6 justify-end items-center">
-                <div className="w-40 sm:w-48 rounded-2xl overflow-hidden border border-white/20 bg-black/80 shadow-xl translate-y-4">
-                  <img
-                    src="/assets/images/wl-secondary-mobile.png"
-                    alt="Secondary trading mobile interface"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="w-44 sm:w-52 rounded-2xl overflow-hidden border border-white/20 bg-black/90 shadow-xl">
-                  <img
-                    src={activeMobile.image}
-                    alt={activeMobile.alt}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+              <div className="relative w-56 sm:w-72 md:w-80 lg:w-96 mx-auto drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]">
+                <img
+                  src={activeMobile.image}
+                  alt={activeMobile.alt}
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
           </motion.div>
@@ -318,12 +317,12 @@ export default function WhiteLabel() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-2xl rounded-3xl border border-slate-100 bg-slate-50 shadow-xl p-4">
+            <div className="relative w-full max-w-2xl">
               <img
-                src={wlCharts}
+                src="/assets/images/white-labelportfolio.png"
                 alt="Advanced charting built into the trading platform"
-                className="w-full h-full object-cover rounded-2xl"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -350,12 +349,12 @@ export default function WhiteLabel() {
             </button>
           </div>
           <div className="relative">
-            <div className="rounded-2xl border border-white/10 bg-black/40 shadow-xl overflow-hidden">
+            <div className="rounded-2xl overflow-hidden">
               <img
-                src={wlIntegrationsHub}
+                src="/assets/images/tradingdashboardlapnmob.png"
                 alt="Finovo integrations hub layout"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain"
+                loading="lazy"
               />
             </div>
           </div>
@@ -396,12 +395,12 @@ export default function WhiteLabel() {
             </ul>
           </div>
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-xl rounded-3xl border border-slate-100 bg-slate-50 shadow-xl overflow-hidden">
+            <div className="relative w-full max-w-xl">
               <img
-                src={wlSocial}
+                src="/assets/images/homepage1.png"
                 alt="Social trading dashboard inside Finovo"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                loading="lazy"
               />
             </div>
           </div>
@@ -412,12 +411,12 @@ export default function WhiteLabel() {
       <section className="py-16 md:py-24 bg-finovo-gray">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="relative w-full max-w-xl rounded-3xl border border-slate-100 bg-slate-50 shadow-xl overflow-hidden">
+            <div className="relative w-full max-w-xl">
               <img
-                src={wlClientZone}
+                src="/assets/images/cfdbrokerage.png"
                 alt="Client zone view with analytics and trading tools"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                loading="lazy"
               />
             </div>
           </div>
@@ -466,12 +465,12 @@ export default function WhiteLabel() {
             </ul>
           </div>
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-xl rounded-3xl border border-slate-100 bg-slate-50 shadow-xl overflow-hidden">
+            <div className="relative w-full max-w-xl">
               <img
-                src={wlBrokerPortal}
+                src="/assets/images/back-officedashboard.png"
                 alt="Finovo broker portal interface"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                loading="lazy"
               />
             </div>
           </div>
@@ -482,12 +481,12 @@ export default function WhiteLabel() {
       <section className="py-16 md:py-24 bg-finovo-gray">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
-            <div className="relative w-full max-w-xl rounded-3xl border border-slate-100 bg-slate-50 shadow-xl overflow-hidden">
+            <div className="relative w-full max-w-xl">
               <img
-                src={wlLiquidity}
+                src="/assets/images/tradingicons.png"
                 alt="Liquidity instruments and pricing tiles"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                loading="lazy"
               />
             </div>
           </div>

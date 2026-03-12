@@ -30,7 +30,7 @@ export const menuItems = [
       content: {
         title: 'White Label Trading Platform',
         desc: 'A full white label platform – Your traders stay engaged, and your brand grows stronger. Advanced charts, social trading, mobile apps and branding.',
-        image: '/assets/images/platform-nav.png',
+        image: '/assets/images/tradingdashboardlapnmob.png',
         path: '/platform/white-label'
       }
     }

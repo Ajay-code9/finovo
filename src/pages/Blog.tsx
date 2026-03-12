@@ -11,7 +11,7 @@ export default function Blog() {
       date: "May 15, 2025",
       author: "Alex Rivers",
       category: "PROP TRADING",
-      image: "/assets/images/blog-1.png"
+      image: "/assets/images/homepage1.png"
     },
     {
       title: "Optimizing Your Brokerage for High-Volume Trading",
@@ -19,7 +19,7 @@ export default function Blog() {
       date: "May 10, 2025",
       author: "Sarah Chen",
       category: "BROKERAGE TECH",
-      image: "/assets/images/blog-2.png"
+      image: "/assets/images/homepage2.png"
     },
     {
       title: "Risk Management Strategies for Modern Brokers",
@@ -27,7 +27,7 @@ export default function Blog() {
       date: "May 05, 2025",
       author: "Michael Ross",
       category: "RISK",
-      image: "/assets/images/blog-3.png"
+      image: "/assets/images/homepage3.png"
     }
   ];
 

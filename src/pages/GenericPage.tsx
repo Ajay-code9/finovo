@@ -91,9 +91,9 @@ export const GenericPage: React.FC<GenericPageProps> = ({ title, description, fe
               <div className="bg-finovo-gray p-8 rounded-3xl border border-slate-100 shadow-xl relative overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-tr from-finovo-green/10 via-transparent to-emerald-500/10 pointer-events-none" />
                 <img
-                  src={`/assets/images/${imageSeed || 'generic-tech'}.png`}
+                  src="/assets/images/homepage1.png"
                   alt={title}
-                  className="rounded-2xl w-full shadow-lg relative z-10"
+                  className="rounded-2xl w-full shadow-lg relative z-10 object-contain"
                   loading="lazy"
                 />
               </div>

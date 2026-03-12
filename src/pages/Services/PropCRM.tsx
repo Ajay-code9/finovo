@@ -100,26 +100,16 @@ export default function PropCRM() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-6 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-sm sm:max-w-md">
               <div className="absolute -top-10 -left-12 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-10 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl" />
-              <div className="relative flex justify-end gap-6">
-                <div className="w-32 sm:w-36 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden translate-y-4">
-                  <img
-                    src="/assets/images/prop-crm-left.png"
-                    alt="Prop CRM trader profile view"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="w-36 sm:w-40 rounded-2xl bg-finovo-dark border border-white/10 shadow-xl overflow-hidden">
-                  <img
-                    src="/assets/images/prop-crm-right.png"
-                    alt="Prop CRM challenge overview"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
+              <div className="relative w-full">
+                <img
+                  src="/assets/images/propmob1.png"
+                  alt="Prop CRM trader profile view"
+                  className="w-full h-auto object-contain drop-shadow-[0_18px_45px_rgba(15,23,42,0.35)]"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>

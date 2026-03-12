@@ -7,7 +7,7 @@ import { PropFaqSection } from '../../components/PropFaqSection';
 import { LiquidityExecutionSection } from '../../components/liquidity/LiquidityExecutionSection';
 import { LiquidityTechGridSection } from '../../components/liquidity/LiquidityTechGridSection';
 
-const heroImage = '/assets/images/liquidity-crypto-hero.png';
+const heroImage = '/assets/images/tradingicons.png';
 
 const clientCards = [
   { label: 'Crypto brokers & exchanges', icon: CandlestickChart },

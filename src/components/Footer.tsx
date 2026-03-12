@@ -8,11 +8,12 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-20">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-8">
-              <div className="flex gap-0.5">
-                <div className="w-2 h-6 bg-finovo-green -skew-x-12 rounded-sm" />
-                <div className="w-2 h-6 bg-finovo-green -skew-x-12 rounded-sm opacity-80" />
-              </div>
-              <span className="text-2xl font-display font-black text-finovo-dark">finovo</span>
+              <img
+                src="/assets/images/FinovoLogo.png"
+                alt="Finovo"
+                className="h-7 w-auto object-contain"
+                loading="lazy"
+              />
             </div>
             <p className="text-finovo-muted max-w-xs mb-8 leading-relaxed font-normal">
               A high-performance financial technology infrastructure designed for next-generation brokerages and prop trading firms.
