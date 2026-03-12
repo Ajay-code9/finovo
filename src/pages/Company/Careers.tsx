@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 const galleryImages = [
-  '/assets/images/careers-gallery-1.png',
-  '/assets/images/careers-gallery-2.png',
-  '/assets/images/careers-gallery-3.png',
-  '/assets/images/careers-gallery-4.png',
+  'https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg',
+  'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg',
+  'https://images.pexels.com/photos/3182759/pexels-photo-3182759.jpeg',
+  'https://images.pexels.com/photos/3861940/pexels-photo-3861940.jpeg',
 ];
 
 const values = [
@@ -36,8 +36,8 @@ const roles = [
   { location: 'Vietnam', title: 'Sales Manager – Vietnam', dept: 'Sales · Full‑time' },
 ];
 
-const productImage = '/assets/images/careers-product.png';
-const videoImage = '/assets/images/careers-video.png';
+const productImage = 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg';
+const videoImage = 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg';
 
 export default function Careers() {
   return (

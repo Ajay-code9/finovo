@@ -38,9 +38,9 @@ export default function ContactUs() {
               </p>
               <div className="flex flex-wrap gap-4">
                 {[
-                  '/assets/images/contact-award-1.png',
-                  '/assets/images/contact-award-2.png',
-                  '/assets/images/contact-award-3.png',
+                  'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg',
+                  'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+                  'https://images.pexels.com/photos/6084227/pexels-photo-6084227.jpeg',
                 ].map((src, idx) => (
                   <div
                     key={src}
@@ -172,7 +172,7 @@ export default function ContactUs() {
           </div>
           <div className="rounded-3xl border border-white/10 bg-slate-900 shadow-xl overflow-hidden">
             <img
-              src="/assets/images/contact-offices-map.png"
+              src="https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg"
               alt="Map of Finovo offices around the world"
               className="w-full h-full object-cover"
               loading="lazy"

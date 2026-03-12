@@ -4,9 +4,9 @@ import { ArrowRight, Users, Globe2, ServerCog, ShieldCheck, BarChart3 } from 'lu
 import { DotsBackground } from '../../components/DotsBackground';
 
 const storyImages = [
-  '/assets/images/about-story-1.png',
-  '/assets/images/about-story-2.png',
-  '/assets/images/about-story-3.png',
+  'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg', // team around laptops
+  'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg', // meeting room collaboration
+  'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg', // analytics / dashboard feel
 ];
 
 const stats = [
