@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   ChevronRight,
   Zap,
   Check,
@@ -10,7 +10,12 @@ import {
   Database,
   ShieldCheck,
   ArrowUpRight,
-  Plus
+  Plus,
+  CreditCard,
+  LineChart,
+  BarChart3,
+  Users,
+  Globe2,
 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 
@@ -322,22 +327,36 @@ const SolutionSelector = () => {
           {solutions.map((sol) => (
             <div 
               key={sol.id}
-              className={`p-8 rounded-2xl border transition-all duration-300 text-left flex flex-col h-full ${activeTab === sol.id ? 'bg-finovo-dark border-finovo-dark text-white shadow-lg z-10' : 'bg-white border-slate-100 text-finovo-dark'}`}
+              className={`p-7 rounded-2xl border transition-all duration-300 text-left flex flex-col h-full ${
+                activeTab === sol.id
+                  ? 'bg-finovo-dark border-finovo-dark text-white shadow-[0_14px_40px_rgba(15,23,42,0.35)] z-10'
+                  : 'bg-white border-slate-100 text-finovo-dark shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:shadow-[0_12px_36px_rgba(15,23,42,0.08)]'
+              }`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${activeTab === sol.id ? 'bg-white/10' : 'bg-finovo-gray'}`}>
                 <sol.icon className={`w-6 h-6 ${activeTab === sol.id ? 'text-finovo-green' : 'text-finovo-green'}`} />
               </div>
-              <h4 className="text-xl font-semibold mb-4">{sol.title}</h4>
-              <p className={`text-base font-semibold mb-6 ${activeTab === sol.id ? 'text-white' : 'text-finovo-dark'}`}>{sol.desc}</p>
-              <p className={`text-base leading-relaxed mb-8 grow ${activeTab === sol.id ? 'text-slate-300' : 'text-finovo-muted'}`}>{sol.details}</p>
-              <button className={`w-full py-3 rounded-full text-base font-semibold border-2 transition-all cursor-pointer hover:shadow-md active:scale-[0.98] ${activeTab === sol.id ? 'bg-white text-finovo-dark border-white hover:bg-slate-100' : 'border-finovo-green text-finovo-green hover:bg-finovo-green hover:text-white'}`}>
+              <h4 className="text-xl font-semibold mb-3">{sol.title}</h4>
+              <p className={`text-sm md:text-base font-semibold mb-4 ${activeTab === sol.id ? 'text-white' : 'text-finovo-dark'}`}>
+                {sol.desc}
+              </p>
+              <p className={`text-sm md:text-base leading-relaxed mb-7 grow ${activeTab === sol.id ? 'text-slate-300' : 'text-finovo-muted'}`}>
+                {sol.details}
+              </p>
+              <button
+                className={`w-full py-3 rounded-full text-sm md:text-base font-semibold border-2 transition-all cursor-pointer hover:shadow-md active:scale-[0.98] ${
+                  activeTab === sol.id
+                    ? 'bg-white text-finovo-dark border-white hover:bg-slate-100'
+                    : 'border-finovo-green text-finovo-green hover:bg-finovo-green hover:text-white'
+                }`}
+              >
                 {sol.btnLabel}
               </button>
             </div>
           ))}
         </div>
 
-        <p className="mt-12 text-finovo-muted font-bold text-sm tracking-widest uppercase">
+        <p className="mt-12 mb-2 text-finovo-muted font-bold text-sm md:text-base lg:text-lg tracking-[0.22em] uppercase">
           Whatever your model, we've built the tools to make it work better, faster, and smarter
         </p>
       </div>
@@ -376,14 +395,14 @@ const IntegrationsBackground = () => {
 
 const IntegrationsHub = () => {
   const icons = [
-    { name: 'Stripe', color: 'bg-indigo-500' },
-    { name: 'MetaQuotes', color: 'bg-blue-600' },
-    { name: 'TradingView', color: 'bg-blue-400' },
-    { name: 'Sumsub', color: 'bg-emerald-500' },
-    { name: 'Zendesk', color: 'bg-green-600' },
-    { name: 'Slack', color: 'bg-purple-500' },
-    { name: 'HubSpot', color: 'bg-orange-500' },
-    { name: 'Binance', color: 'bg-yellow-500' }
+    { name: 'Payments', color: 'bg-emerald-500', icon: CreditCard },
+    { name: 'MetaTrader', color: 'bg-sky-600', icon: LineChart },
+    { name: 'TradingView', color: 'bg-indigo-500', icon: BarChart3 },
+    { name: 'KYC', color: 'bg-emerald-600', icon: ShieldCheck },
+    { name: 'Support', color: 'bg-violet-500', icon: Users },
+    { name: 'CRMs', color: 'bg-orange-500', icon: LayoutDashboard },
+    { name: 'Liquidity', color: 'bg-blue-500', icon: Globe2 },
+    { name: 'Messaging', color: 'bg-yellow-500', icon: Zap },
   ];
 
   return (
@@ -414,34 +433,85 @@ const IntegrationsHub = () => {
           </div>
 
           <div className="relative h-[500px] flex items-center justify-center">
-            {/* Orbiting Circles */}
-            <div className="absolute w-[400px] h-[400px] border border-white/5 rounded-full animate-spin-slow" />
-            <div className="absolute w-[280px] h-[280px] border border-white/10 rounded-full animate-spin-reverse" />
-            
+            {/* Orbiting circles */}
+            <div className="absolute w-[400px] h-[400px] border border-white/5 rounded-full" />
+            <div className="absolute w-[280px] h-[280px] border border-white/10 rounded-full" />
+
             {/* Central Logo */}
-            <div className="relative z-10 w-24 h-24 bg-finovo-green rounded-2xl flex items-center justify-center shadow-xl shadow-finovo-green/30">
-              <div className="flex gap-0.5">
-                <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm" />
-                <div className="w-2 h-8 bg-white -skew-x-12 rounded-sm opacity-80" />
-              </div>
+            <div className="relative z-10 w-24 h-24 rounded-2xl flex items-center justify-center bg-white shadow-xl shadow-finovo-green/30">
+              <img
+                src="/assets/images/FinovoLogo.png"
+                alt="Finovo"
+                className="w-16 h-auto object-contain"
+                loading="lazy"
+              />
             </div>
 
-            {/* Orbiting Icons (static positions for performance) */}
-            {icons.map((icon, i) => {
-              const angle = (i * 360) / icons.length;
-              const radius = i % 2 === 0 ? 200 : 140;
-              const x = radius * Math.cos((angle * Math.PI) / 180);
-              const y = radius * Math.sin((angle * Math.PI) / 180);
-              return (
-                <div
-                  key={icon.name}
-                  className={`absolute w-12 h-12 ${icon.color} rounded-xl flex items-center justify-center shadow-lg`}
-                  style={{ transform: `translate(${x}px, ${y}px)` }}
-                >
-                  <div className="w-6 h-6 bg-white/20 rounded-sm" />
-                </div>
-              );
-            })}
+            {/* Outer ring – slow clockwise */}
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
+            >
+              {icons
+                .filter((_, i) => i % 2 === 0)
+                .map((icon, i, outerIcons) => {
+                  const angle = (i * 360) / outerIcons.length;
+                  const radius = 200;
+                  const x = radius * Math.cos((angle * Math.PI) / 180);
+                  const y = radius * Math.sin((angle * Math.PI) / 180);
+                  const Icon = icon.icon;
+
+                  return (
+                    <div
+                      key={icon.name}
+                      className={`absolute w-12 h-12 ${icon.color} rounded-xl flex items-center justify-center shadow-lg`}
+                      style={{ transform: `translate(${x}px, ${y}px)` }}
+                    >
+                      <motion.div
+                        className="flex items-center justify-center w-full h-full"
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </motion.div>
+                    </div>
+                  );
+                })}
+            </motion.div>
+
+            {/* Inner ring – faster counter‑clockwise */}
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+            >
+              {icons
+                .filter((_, i) => i % 2 === 1)
+                .map((icon, i, innerIcons) => {
+                  const angle = (i * 360) / innerIcons.length;
+                  const radius = 140;
+                  const x = radius * Math.cos((angle * Math.PI) / 180);
+                  const y = radius * Math.sin((angle * Math.PI) / 180);
+                  const Icon = icon.icon;
+
+                  return (
+                    <div
+                      key={icon.name}
+                      className={`absolute w-12 h-12 ${icon.color} rounded-xl flex items-center justify-center shadow-lg`}
+                      style={{ transform: `translate(${x}px, ${y}px)` }}
+                    >
+                      <motion.div
+                        className="flex items-center justify-center w-full h-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </motion.div>
+                    </div>
+                  );
+                })}
+            </motion.div>
           </div>
         </div>
       </div>
@@ -835,9 +905,11 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="min-w-0 max-w-[520px] w-full"
             >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-finovo-green/10 border border-finovo-green/20 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-finovo-green/5 border border-finovo-green/25 rounded-full mb-4">
               <Zap className="w-4 h-4 text-finovo-green" />
-              <span className="text-finovo-green text-xs font-black tracking-widest uppercase">Market #1 Brokerage Tech Partner</span>
+              <span className="text-finovo-green text-[11px] font-black tracking-[0.22em] uppercase">
+                Market #1 Brokerage Tech Partner
+              </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-finovo-dark leading-tight mb-2 tracking-tight">
               One Technology <span className="text-finovo-green">Partner.</span>
@@ -849,10 +921,10 @@ export default function Home() {
               Data-driven infrastructure to launch, scale, and modernise brokerages and prop trading firms with a single, unified stack.
             </p>
             <div className="flex flex-wrap items-center gap-4 md:gap-6">
-              <button className="px-9 py-4 bg-finovo-green text-white rounded-full text-sm md:text-base font-semibold hover:opacity-90 transition-all shadow-xl shadow-finovo-green/25 flex items-center gap-2">
+              <button className="px-9 py-3.5 rounded-full bg-finovo-green text-white text-sm md:text-base font-semibold border border-emerald-500/60 shadow-sm hover:shadow-md hover:bg-emerald-600 transition-all flex items-center gap-2">
                 Explore All‑In‑One <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="px-0 py-2 text-sm md:text-base font-semibold text-finovo-dark hover:text-finovo-green transition-colors flex items-center gap-2">
+              <button className="px-0 py-1.5 text-sm md:text-base font-semibold text-finovo-dark hover:text-finovo-green hover:underline transition-colors flex items-center gap-2">
                 Explore MT4/MT5 Services
                 <span className="h-px w-10 bg-finovo-green" />
               </button>
@@ -869,6 +941,20 @@ export default function Home() {
                 loading="lazy"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Thin trust strip under hero */}
+      <section className="py-4 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center text-[11px] md:text-xs lg:text-sm text-finovo-muted">
+          <p className="font-semibold text-finovo-dark/85 mb-1">
+            Trusted by brokers and prop firms across EU, MENA and APAC.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-6 font-semibold uppercase tracking-[0.18em]">
+            <span>$500M+ MONTHLY VOLUME</span>
+            <span>40K+ ACTIVE ACCOUNTS</span>
+            <span>80+ BROKER &amp; PROP CLIENTS</span>
           </div>
         </div>
       </section>

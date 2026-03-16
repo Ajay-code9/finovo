@@ -58,7 +58,7 @@ export default function PropCRM() {
   return (
     <div className="pb-24">
       {/* Hero – Prop CRM */}
-      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+      <section className="relative pt-6 md:pt-10 pb-16 md:pb-20 bg-white overflow-hidden">
         <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block pointer-events-none">
           <DotsBackground />
         </div>

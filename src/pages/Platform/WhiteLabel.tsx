@@ -115,13 +115,13 @@ export default function WhiteLabel() {
           <DotsBackground />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-10">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6"
+            className="w-full lg:w-1/2"
           >
             <p className="text-xs font-semibold text-finovo-green mb-3 uppercase tracking-[0.25em]">
               White label trading platform
@@ -155,9 +155,9 @@ export default function WhiteLabel() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="lg:col-span-6 flex justify-center lg:justify-end"
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-2xl">
+            <div className="relative w-full max-w-xl lg:max-w-[38rem]">
               <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-finovo-green/10 blur-3xl" />
               <div className="absolute -bottom-12 -right-8 w-48 h-48 rounded-full bg-emerald-500/15 blur-3xl" />
 

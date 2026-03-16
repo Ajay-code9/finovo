@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChevronDown, 
@@ -16,6 +16,30 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const isPathActive = (path?: string) =>
+    path ? (currentPath === path || currentPath.startsWith(path + '/')) : false;
+
+  const isMenuItemActive = (id: string): boolean => {
+    const item = menuItems.find((m) => m.id === id);
+    if (!item) return false;
+
+    if (isPathActive((item as any).path)) return true;
+
+    if (item.submenu?.items) {
+      if (item.submenu.items.some((sub) => isPathActive(sub.path))) return true;
+    }
+    if ((item as any).submenu?.content?.path) {
+      if (isPathActive((item as any).submenu.content.path)) return true;
+    }
+    if (item.submenu?.links) {
+      if (item.submenu.links.some((l) => isPathActive(l.path))) return true;
+    }
+    return false;
+  };
 
   const navRef = useRef<HTMLElement>(null);
   const [navHeight, setNavHeight] = useState(60);
@@ -81,29 +105,48 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          {menuItems.map((item) => (
+          {menuItems.map((item) => {
+            const itemActive = isMenuItemActive(item.id);
+            return (
             <div 
               key={item.id} 
-              className="group relative flex items-center gap-1 cursor-pointer py-2"
+              className={`group relative flex items-center gap-1 cursor-pointer py-2 px-2 rounded-full transition-colors ${
+                itemActive ? 'bg-emerald-50' : ''
+              }`}
               onMouseEnter={() => {
                 cancelSubmenuClose();
                 setActiveSubmenu(item.hasSubmenu ? item.id : null);
               }}
             >
               {item.hasSubmenu ? (
-                <span className={`text-base font-medium transition-colors ${activeSubmenu === item.id ? 'text-finovo-green' : 'text-slate-600 hover:text-finovo-green'}`}>
+                <span
+                  className={`text-base font-medium transition-colors ${
+                    itemActive || activeSubmenu === item.id
+                      ? 'text-finovo-green'
+                      : 'text-slate-600 hover:text-finovo-green'
+                  }`}
+                >
                   {item.label}
                 </span>
               ) : (
-                <Link to={item.path || '#'} className={`text-base font-medium transition-colors ${activeSubmenu === item.id ? 'text-finovo-green' : 'text-slate-600 hover:text-finovo-green'}`}>
+                <Link
+                  to={item.path || '#'}
+                  className={`text-base font-medium transition-colors ${
+                    itemActive ? 'text-finovo-green' : 'text-slate-600 hover:text-finovo-green'
+                  }`}
+                >
                   {item.label}
                 </Link>
               )}
               {item.hasSubmenu && (
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeSubmenu === item.id ? 'rotate-180 text-finovo-green' : 'text-slate-400'}`} />
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                    itemActive || activeSubmenu === item.id ? 'rotate-180 text-finovo-green' : 'text-slate-400'
+                  }`}
+                />
               )}
             </div>
-          ))}
+          )})}
         </div>
 
         {/* Right Actions */}
@@ -140,17 +183,25 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                     </span>
                   </div>
                   <div className="col-span-12 grid grid-cols-2 gap-x-12 gap-y-8">
-                    {menuItems.find(m => m.id === 'solutions')?.submenu?.items?.map((sub, i) => (
+                    {menuItems.find(m => m.id === 'solutions')?.submenu?.items?.map((sub, i) => {
+                      const subActive = isPathActive(sub.path);
+                      return (
                       <Link key={i} to={sub.path} className="flex gap-5 group cursor-pointer" onClick={() => setActiveSubmenu(null)}>
-                        <div className="w-12 h-12 bg-finovo-gray rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-finovo-green/10 transition-colors">
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
+                          subActive ? 'bg-finovo-green/15' : 'bg-finovo-gray group-hover:bg-finovo-green/10'
+                        }`}>
                           <sub.icon className="w-5 h-5 text-finovo-green" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-finovo-dark text-base mb-1 group-hover:text-finovo-green transition-colors">{sub.title}</h4>
+                          <h4 className={`font-medium text-base mb-1 transition-colors ${
+                            subActive ? 'text-finovo-green' : 'text-finovo-dark group-hover:text-finovo-green'
+                          }`}>
+                            {sub.title}
+                          </h4>
                           <p className="text-xs text-finovo-muted leading-relaxed">{sub.desc}</p>
                         </div>
                       </Link>
-                    ))}
+                    )})}
                   </div>
                 </div>
               )}
@@ -162,18 +213,27 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                       {menuItems.find(m => m.id === 'platform')?.submenu?.title}
                     </span>
                   </div>
+                  {(() => {
+                    const platform = menuItems.find(m => m.id === 'platform');
+                    const content = platform?.submenu?.content;
+                    const contentActive = isPathActive(content?.path);
+                    return (
                   <Link
                     to={menuItems.find(m => m.id === 'platform')?.submenu?.content?.path || '#'}
                     onClick={() => setActiveSubmenu(null)}
                     className="col-span-5 group cursor-pointer"
                   >
-                    <h4 className="text-xl font-medium text-finovo-dark mb-3 group-hover:text-finovo-green transition-colors">
-                      {menuItems.find(m => m.id === 'platform')?.submenu?.content?.title}
+                    <h4 className={`text-xl font-medium mb-3 transition-colors ${
+                      contentActive ? 'text-finovo-green' : 'text-finovo-dark group-hover:text-finovo-green'
+                    }`}>
+                      {content?.title}
                     </h4>
                     <p className="text-sm text-finovo-muted leading-relaxed">
-                      {menuItems.find(m => m.id === 'platform')?.submenu?.content?.desc}
+                      {content?.desc}
                     </p>
                   </Link>
+                    );
+                  })()}
                   <div className="col-span-7 flex justify-end">
                     <img 
                       src={menuItems.find(m => m.id === 'platform')?.submenu?.content?.image} 
@@ -193,17 +253,25 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                     </span>
                   </div>
                   <div className="col-span-12 grid grid-cols-2 gap-x-12 gap-y-8">
-                    {menuItems.find(m => m.id === 'services')?.submenu?.items?.map((sub, i) => (
+                    {menuItems.find(m => m.id === 'services')?.submenu?.items?.map((sub, i) => {
+                      const subActive = isPathActive(sub.path);
+                      return (
                       <Link key={i} to={sub.path} className="flex gap-5 group cursor-pointer" onClick={() => setActiveSubmenu(null)}>
-                        <div className="w-12 h-12 bg-finovo-gray rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-finovo-green/10 transition-colors">
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
+                          subActive ? 'bg-finovo-green/15' : 'bg-finovo-gray group-hover:bg-finovo-green/10'
+                        }`}>
                           <sub.icon className="w-5 h-5 text-finovo-green" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-finovo-dark text-base mb-1 group-hover:text-finovo-green transition-colors">{sub.title}</h4>
+                          <h4 className={`font-bold text-base mb-1 transition-colors ${
+                            subActive ? 'text-finovo-green' : 'text-finovo-dark group-hover:text-finovo-green'
+                          }`}>
+                            {sub.title}
+                          </h4>
                           <p className="text-xs text-finovo-muted leading-relaxed">{sub.desc}</p>
                         </div>
                       </Link>
-                    ))}
+                    )})}
                   </div>
                 </div>
               )}
@@ -216,17 +284,25 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                     </span>
                   </div>
                   <div className="col-span-12 grid grid-cols-2 gap-x-12 gap-y-8">
-                    {menuItems.find(m => m.id === 'liquidity')?.submenu?.items?.map((sub, i) => (
+                    {menuItems.find(m => m.id === 'liquidity')?.submenu?.items?.map((sub, i) => {
+                      const subActive = isPathActive(sub.path);
+                      return (
                       <Link key={i} to={sub.path} className="flex gap-5 group cursor-pointer" onClick={() => setActiveSubmenu(null)}>
-                        <div className="w-12 h-12 bg-finovo-gray rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-finovo-green/10 transition-colors">
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
+                          subActive ? 'bg-finovo-green/15' : 'bg-finovo-gray group-hover:bg-finovo-green/10'
+                        }`}>
                           <sub.icon className="w-5 h-5 text-finovo-green" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-finovo-dark text-base mb-1 group-hover:text-finovo-green transition-colors">{sub.title}</h4>
+                          <h4 className={`font-bold text-base mb-1 transition-colors ${
+                            subActive ? 'text-finovo-green' : 'text-finovo-dark group-hover:text-finovo-green'
+                          }`}>
+                            {sub.title}
+                          </h4>
                           <p className="text-xs text-finovo-muted leading-relaxed">{sub.desc}</p>
                         </div>
                       </Link>
-                    ))}
+                    )})}
                   </div>
                 </div>
               )}
@@ -251,11 +327,21 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                   </div>
                   <div className="col-span-5 border-l border-slate-100 pl-10">
                     <ul className="space-y-3">
-                      {menuItems.find(m => m.id === 'company')?.submenu?.links?.map((link, i) => (
+                      {menuItems.find(m => m.id === 'company')?.submenu?.links?.map((link, i) => {
+                        const linkActive = isPathActive(link.path);
+                        return (
                         <li key={i}>
-                          <Link to={link.path} className="text-base font-medium text-finovo-dark hover:text-finovo-green transition-colors" onClick={() => setActiveSubmenu(null)}>{link.label}</Link>
+                          <Link
+                            to={link.path}
+                            className={`text-base font-medium transition-colors ${
+                              linkActive ? 'text-finovo-green' : 'text-finovo-dark hover:text-finovo-green'
+                            }`}
+                            onClick={() => setActiveSubmenu(null)}
+                          >
+                            {link.label}
+                          </Link>
                         </li>
-                      ))}
+                      )})}
                     </ul>
                   </div>
                 </div>
@@ -284,7 +370,9 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                     {item.hasSubmenu ? (
                       <button 
                         onClick={() => setMobileExpanded(mobileExpanded === item.id ? null : item.id)}
-                        className="w-full flex items-center justify-between py-4 text-slate-700 font-medium"
+                        className={`w-full flex items-center justify-between py-4 text-sm font-medium ${
+                          isMenuItemActive(item.id) ? 'text-finovo-green bg-emerald-50 rounded-xl px-3' : 'text-slate-700'
+                        }`}
                       >
                         <span>{item.label}</span>
                         {item.hasSubmenu && (
@@ -295,7 +383,9 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                       <Link 
                         to={item.path || '#'} 
                         onClick={() => setIsMenuOpen(false)}
-                        className="w-full flex items-center justify-between py-4 text-slate-700 font-medium"
+                        className={`w-full flex items-center justify-between py-4 text-sm font-medium ${
+                          isPathActive(item.path) ? 'text-finovo-green bg-emerald-50 rounded-xl px-3' : 'text-slate-700'
+                        }`}
                       >
                         <span>{item.label}</span>
                       </Link>
@@ -316,17 +406,25 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                                   {item.submenu.title}
                                 </span>
                                 <div className="space-y-6">
-                                  {item.submenu.items.map((sub, i) => (
-                                    <Link key={i} to={sub.path} className="flex gap-4" onClick={() => setIsMenuOpen(false)}>
-                                      <div className="w-10 h-10 bg-finovo-gray rounded-xl flex items-center justify-center shrink-0">
+                                  {item.submenu.items.map((sub, i) => {
+                                    const subActive = isPathActive(sub.path);
+                                    return (
+                                  <Link key={i} to={sub.path} className="flex gap-4" onClick={() => setIsMenuOpen(false)}>
+                                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                                        subActive ? 'bg-finovo-green/15' : 'bg-finovo-gray'
+                                      }`}>
                                         <sub.icon className="w-5 h-5 text-finovo-green" />
                                       </div>
                                       <div>
-                                        <h4 className="font-medium text-finovo-dark text-sm mb-0.5">{sub.title}</h4>
+                                        <h4 className={`font-medium text-sm mb-0.5 ${
+                                          subActive ? 'text-finovo-green' : 'text-finovo-dark'
+                                        }`}>
+                                          {sub.title}
+                                        </h4>
                                         <p className="text-[11px] text-finovo-muted leading-tight">{sub.desc}</p>
                                       </div>
                                     </Link>
-                                  ))}
+                                  )})}
                                 </div>
                               </>
                             )}
@@ -338,17 +436,31 @@ export const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, set
                                 <h4 className="font-medium text-finovo-dark text-sm">{item.submenu.content.title}</h4>
                                 <p className="text-[11px] text-finovo-muted leading-relaxed">{item.submenu.content.desc}</p>
                                 <Link to={item.submenu.content.path} onClick={() => setIsMenuOpen(false)}>
-                                  <img src={item.submenu.content.image} className="w-full rounded-xl" referrerPolicy="no-referrer" />
+                                  <img
+                                    src={item.submenu.content.image}
+                                    className="w-full h-auto object-contain"
+                                    referrerPolicy="no-referrer"
+                                  />
                                 </Link>
                               </div>
                             )}
                             {item.submenu?.links && (
                               <ul className="space-y-4 pt-2">
-                                {item.submenu.links.map((link, i) => (
+                                {item.submenu.links.map((link, i) => {
+                                  const linkActive = isPathActive(link.path);
+                                  return (
                                   <li key={i}>
-                                    <Link to={link.path} className="text-sm font-medium text-finovo-dark" onClick={() => setIsMenuOpen(false)}>{link.label}</Link>
+                                    <Link
+                                      to={link.path}
+                                      className={`text-sm font-medium ${
+                                        linkActive ? 'text-finovo-green' : 'text-finovo-dark'
+                                      }`}
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {link.label}
+                                    </Link>
                                   </li>
-                                ))}
+                                )})}
                               </ul>
                             )}
                           </div>
